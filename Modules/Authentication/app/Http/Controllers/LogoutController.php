@@ -2,58 +2,25 @@
 
 namespace Modules\Authentication\Http\Controllers;
 
+use App\Enums\HttpStatus;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class LogoutController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * logout user
      */
-    public function index()
+    public function logout(Request $request): JsonResponse
     {
-        //
+        $request
+            ->user()
+            ->currentAccessToken()
+            ->delete();
 
-        return response()->json([]);
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-
-        return response()->json([]);
-    }
-
-    /**
-     * Show the specified resource.
-     */
-    public function show($id)
-    {
-        //
-
-        return response()->json([]);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $id)
-    {
-        //
-
-        return response()->json([]);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy($id)
-    {
-        //
-
-        return response()->json([]);
+        return response()->json([
+            'message' => __('messages.logout'),
+        ], HttpStatus::OK->value);
     }
 }
