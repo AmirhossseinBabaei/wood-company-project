@@ -75,5 +75,5 @@ return [
     'server_error' => 'Internal server error.',
     'service_unavailable' => 'Service temporarily unavailable.',
     'maintenance' => 'The system is currently under maintenance.',
-
+    'login_successfully' => 'The user logging successFully'
 ];
