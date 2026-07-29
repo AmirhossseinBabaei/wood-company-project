@@ -23,7 +23,7 @@ class RegisterController extends Controller
         }
 
         return response()->json([
-            'message' => __('messages.created', ['resource' => 'User']),
-        ], HttpStatus::CREATED->value);
+            'message' => __('messages.created', ['resource' => 'User'])
+        ], HttpStatus::OK->value);
     }
 }
