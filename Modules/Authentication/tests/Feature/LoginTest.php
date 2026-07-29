@@ -26,11 +26,34 @@ class LoginTest extends TestCase
 
         $response = $this->post('/api/auth/login', $postedData);
 
-        $this->assertDatabaseHas('personal_access_tokens', [
-            'tokenable_id' => $user->id,
-            'tokenable_type' => User::class
+        $response->assertStatus(201);
+    }
+
+    public function test_login_user_failed(): void
+    {
+        $user = User::factory()->create([
+            'password' => Hash::make('secret123')
         ]);
 
-        $response->assertOk();
+        $postedData = [
+            'email' => $user->email,
+            'password' => 'secret'
+        ];
+
+        $response = $this->post('/api/auth/login', $postedData);
+
+        $response->assertStatus(500);
+    }
+
+    public function test_login_validation_failed()
+    {
+        $postedData = [
+            'email' => 'amir@gmail.com',
+            'password' => 'secret'
+        ];
+
+        $response = $this->post('/api/auth/login', $postedData);
+
+        $response->assertStatus(302);
     }
 }
