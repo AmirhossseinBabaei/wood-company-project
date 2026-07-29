@@ -1,4 +1,4 @@
 {
-    "HomePage": true,
-    "Blog": true
+    "User": true,
+    "Authentication": true
 }
