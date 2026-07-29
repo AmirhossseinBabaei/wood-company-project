@@ -21,7 +21,7 @@ class LoginController extends Controller
         if (null == $status['token']) {
             return response()->json([
                 'message' => __('messages.server_error'),
-            ], HttpStatus::INTERNAL_SERVER_ERROR->value);
+            ], HttpStatus::UNAUTHORIZED->value);
         }
 
         return response()->json([
