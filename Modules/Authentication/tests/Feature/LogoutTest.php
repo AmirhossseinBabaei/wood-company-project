@@ -10,7 +10,7 @@ class LogoutTest extends TestCase
 {
     use RefreshDatabase;
     /**
-     * A basic test example.
+     * Logout user Test
      */
     public function test_user_can_logout(): void
     {

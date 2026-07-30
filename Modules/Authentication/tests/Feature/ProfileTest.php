@@ -12,7 +12,7 @@ class ProfileTest extends TestCase
     use RefreshDatabase;
 
     /**
-     * profile tests
+     * Profile Test
      */
     public function test_user_can_get_profile(): void
     {
@@ -70,6 +70,6 @@ class ProfileTest extends TestCase
         $response = $this->withToken($token->plainTextToken)
             ->post('/api/auth/profile/update', $updateProfileData);
 
-        $response->assertStatus(302);
+        $response->assertStatus(HttpStatus::FOUND->value);
     }
 }

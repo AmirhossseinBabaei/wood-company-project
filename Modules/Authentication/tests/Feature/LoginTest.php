@@ -2,6 +2,7 @@
 
 namespace Modules\Authentication\Tests\Feature;
 
+use App\Enums\HttpStatus;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
@@ -26,7 +27,7 @@ class LoginTest extends TestCase
 
         $response = $this->post('/api/auth/login', $postedData);
 
-        $response->assertStatus(201);
+        $response->assertStatus(HttpStatus::CREATED->value);
     }
 
     public function test_login_user_failed(): void
@@ -42,7 +43,7 @@ class LoginTest extends TestCase
 
         $response = $this->post('/api/auth/login', $postedData);
 
-        $response->assertStatus(500);
+        $response->assertStatus(HttpStatus::INTERNAL_SERVER_ERROR->value);
     }
 
     public function test_login_validation_failed()
@@ -54,6 +55,6 @@ class LoginTest extends TestCase
 
         $response = $this->post('/api/auth/login', $postedData);
 
-        $response->assertStatus(302);
+        $response->assertStatus(HttpStatus::FOUND->value);
     }
 }

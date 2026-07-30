@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Authentication\Tests\Feature;
 
+use App\Enums\HttpStatus;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -13,7 +14,7 @@ class RegisterTest extends TestCase
     use RefreshDatabase;
 
     /**
-     * A basic test example.
+     * Test Register user
      */
     public function test_user_can_register(): void
     {
@@ -33,6 +34,6 @@ class RegisterTest extends TestCase
         $user = ['email' => 'ali', 'password' => 'laravel12345'];
 
         $response = $this->post('/api/auth/register', $user);
-        $response->assertStatus(302);
+        $response->assertStatus(HttpStatus::FOUND->value);
     }
 }
