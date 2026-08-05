@@ -4,7 +4,7 @@ return [
 
     // Sidebar
     'dashboard' => 'داشبورد',
-    'users' => 'کاربران',
+    'user' => 'کاربران',
     'products' => 'محصولات',
     'articles' => 'مقالات',
     'consumer_industries' => 'صنایع مصرف کننده',
@@ -162,5 +162,6 @@ return [
     'Actions' => 'عملیات',
     'gallery_image' => 'گالری تصاویر',
     'summery' => 'خلاصه',
-    'similler_article' => 'مقالات مشابه'
+    'similler_article' => 'مقالات مشابه',
+    'education_success' => 'عملیات با موفقیت انجام شد!'
 ];

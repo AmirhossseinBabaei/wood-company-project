@@ -76,5 +76,6 @@ return [
     'service_unavailable' => 'Service temporarily unavailable.',
     'maintenance' => 'The system is currently under maintenance.',
     'login_successfully' => 'The user logging successfully',
-    'logout' => 'The user logout successfully'
+    'logout' => 'The user logout successfully',
+    'education_success' => 'The education successfully runned!'
 ];
