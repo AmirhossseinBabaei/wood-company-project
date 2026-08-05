@@ -1,1 +1,6 @@
-[]
+{
+    "Auth": true,
+    "User": true,
+    "Gallery": true,
+    "Settings": true
+}
