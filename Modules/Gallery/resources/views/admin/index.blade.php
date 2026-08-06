@@ -137,7 +137,7 @@
 
                                     <td>
 
-                                        @if($gallery->status)
+                                        @if($gallery->status == "active")
 
                                             <span class="badge bg-success">
                                             {{ __('Gallery::words.active') }}

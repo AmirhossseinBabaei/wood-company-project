@@ -171,16 +171,11 @@
 
                             {{-- Status --}}
                             <div class="col-md-6 mb-3">
-
-
                                 <label class="form-label d-block">
                                     {{ __('Gallery::words.status') }}
                                 </label>
 
-
-                                <label class="custom-switch">
-
-                                    <select class="form-select">
+                                    <select class="form-select col-12" name="status">
                                         @if($gallery->status == "active")
                                             <option selected value="active">{{ __('Gallery::words.active') }}</option>
                                             <option value="inactive">{{ __('Gallery::words.inactive') }}</option>
@@ -190,23 +185,7 @@
                                         @endif
 
                                     </select>
-
-                                    <span class="custom-switch-indicator"></span>
-
-
-                                    <span class="custom-switch-description">
-                                    {{ __('Gallery::words.active') }}
-                                </span>
-
-
-                                </label>
-
-
                             </div>
-
-
-
-
 
                             {{-- Current Image --}}
                             <div class="col-md-6 mb-3">
