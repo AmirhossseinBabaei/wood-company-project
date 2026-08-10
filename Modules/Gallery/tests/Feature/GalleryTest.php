@@ -5,7 +5,7 @@ namespace Modules\Gallery\Tests\Feature;
 use App\Models\User;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
-use Modules\Gallery\Models\Gallery;
+use Modules\Gallery\app\Models\Gallery;
 use Tests\TestCase;
 
 class GalleryTest extends TestCase
