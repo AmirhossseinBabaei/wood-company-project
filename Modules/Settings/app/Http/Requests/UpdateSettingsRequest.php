@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Settings\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
@@ -11,7 +13,24 @@ class UpdateSettingsRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [];
+        return [
+            'fa_website_name' => ['nullable', 'max:100'],
+            'en_website_name' => ['nullable', 'max:100'],
+            'fa_website_description' => ['nullable', 'max:100'],
+            'en_website_description' => ['nullable', 'max:100'],
+            'logo_src' => ['nullable'],
+            'favicon' => ['nullable', 'max:1024'],
+            'footer_logo' => ['nullable', 'max:1024'],
+            'email' => ['nullable', 'email'],
+            'phone' => ['nullable', 'max:12'],
+            'mobile' => ['nullable', 'max:12'],
+            'fa_address' => ['nullable', 'max:200'],
+            'en_address' => ['nullable', 'max:200'],
+            'instagram' => ['nullable', 'url'],
+            'telegram' => ['nullable', 'url'],
+            'linkedin' => ['nullable', 'url'],
+            'whatsapp' => ['nullable', 'url']
+        ];
     }
 
     /**
@@ -19,6 +38,6 @@ class UpdateSettingsRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
+        return auth()->check();
     }
 }
