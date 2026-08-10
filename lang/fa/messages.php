@@ -163,5 +163,42 @@ return [
     'gallery_image' => 'گالری تصاویر',
     'summery' => 'خلاصه',
     'similler_article' => 'مقالات مشابه',
-    'education_success' => 'عملیات با موفقیت انجام شد!'
+    'education_success' => 'عملیات با موفقیت انجام شد!',
+
+    'Dashboard' => 'داشبورد',
+
+    'Management' => 'مدیریت',
+
+    'Users' => 'کاربران',
+    'All Users' => 'همه کاربران',
+    'Create User' => 'ایجاد کاربر',
+
+    'Contact Us' => 'تماس با ما',
+    'All Messages' => 'همه پیام‌ها',
+    'Create Message' => 'ایجاد پیام',
+
+    'Gallery' => 'گالری',
+    'All Images' => 'همه تصاویر',
+    'Add Image' => 'افزودن تصویر',
+
+    'Menu' => 'منو',
+    'All Menus' => 'همه منوها',
+    'Create Menu' => 'ایجاد منو',
+
+    'Projects' => 'پروژه‌ها',
+    'All Projects' => 'همه پروژه‌ها',
+    'Create Project' => 'ایجاد پروژه',
+
+    'Services' => 'خدمات',
+    'All Services' => 'همه خدمات',
+    'Create Service' => 'ایجاد خدمت',
+
+    'Slider Settings' => 'تنظیمات اسلایدر',
+    'All Sliders' => 'همه اسلایدرها',
+    'Create Slider' => 'ایجاد اسلایدر',
+
+    'System' => 'سیستم',
+    'Settings' => 'تنظیمات',
+    'General Settings' => 'تنظیمات عمومی',
+    'All Properties' => 'کل ویژگی ها'
 ];

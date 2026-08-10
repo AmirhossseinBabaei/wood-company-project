@@ -1,4 +1,4 @@
-<?php
+,<?php
 
 return [
 
@@ -77,5 +77,42 @@ return [
     'maintenance' => 'The system is currently under maintenance.',
     'login_successfully' => 'The user logging successfully',
     'logout' => 'The user logout successfully',
-    'education_success' => 'The education successfully runned!'
+    'education_success' => 'The education successfully runned!',
+
+    'Dashboard' => 'Dashboard',
+
+    'Management' => 'Management',
+
+    'Users' => 'Users',
+    'All Users' => 'All Users',
+    'Create User' => 'Create User',
+
+    'Contact Us' => 'Contact Us',
+    'All Messages' => 'All Messages',
+    'Create Message' => 'Create Message',
+
+    'Gallery' => 'Gallery',
+    'All Images' => 'All Images',
+    'Add Image' => 'Add Image',
+
+    'Menu' => 'Menu',
+    'All Menus' => 'All Menus',
+    'Create Menu' => 'Create Menu',
+
+    'Projects' => 'Projects',
+    'All Projects' => 'All Projects',
+    'Create Project' => 'Create Project',
+
+    'Services' => 'Services',
+    'All Services' => 'All Services',
+    'Create Service' => 'Create Service',
+
+    'Slider Settings' => 'Slider Settings',
+    'All Sliders' => 'All Sliders',
+    'Create Slider' => 'Create Slider',
+
+    'System' => 'System',
+    'Settings' => 'Settings',
+    'General Settings' => 'General Settings',
+    'All Properties' => 'All Properties'
 ];
