@@ -2,5 +2,10 @@
     "Auth": true,
     "User": true,
     "Gallery": true,
-    "Settings": true
+    "Settings": true,
+    "ContactUs": true,
+    "Services": true,
+    "Project": true,
+    "Menu": true,
+    "Slider": true
 }
