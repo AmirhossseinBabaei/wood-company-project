@@ -8,9 +8,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
+use Modules\Gallery\app\Models\Gallery;
 use Modules\Gallery\Http\Requests\GalleryRequest;
-use Modules\Gallery\Models\Gallery;
-
 
 class GalleryController extends Controller
 {

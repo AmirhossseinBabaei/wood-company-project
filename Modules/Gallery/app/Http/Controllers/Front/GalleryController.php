@@ -3,7 +3,7 @@
 namespace Modules\Gallery\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
-use Modules\Gallery\Models\Gallery;
+use Modules\Gallery\app\Models\Gallery;
 
 class GalleryController extends Controller
 {
