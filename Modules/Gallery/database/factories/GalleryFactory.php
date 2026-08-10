@@ -3,8 +3,9 @@
 namespace Modules\Gallery\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Modules\Gallery\app\Models\Gallery;
 
-class GalleryFactoryFactory extends Factory
+class GalleryFactory extends Factory
 {
     protected $model = Gallery::class;
 
