@@ -17,8 +17,8 @@ class GalleryRequest extends FormRequest
             'fa_description' => 'required',
             'en_description' => 'required',
             'sort_order' => ['required', 'integer'],
-            'image' => ['required', 'max:1024'],
-            'status' => ['in:active,inactive']
+            'image' => 'max:1024',
+            'status' => 'in:active,inactive'
         ];
     }
 
