@@ -1,56 +1,59 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Settings\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
+use Modules\Settings\app\Models\Setting;
+use Modules\Settings\Http\Requests\UpdateSettingsRequest;
 
 class SettingsController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * @return View
      */
-    public function index()
+
+    public function index(): View
     {
-        return view('settings::index');
+        $setting = Setting::first();
+
+        return view('settings::index', compact('setting'));
     }
 
+
     /**
-     * Show the form for creating a new resource.
+     * @param UpdateSettingsRequest $request
+     * @return RedirectResponse
      */
-    public function create()
+
+    public function updateOrCreate(UpdateSettingsRequest $request): RedirectResponse
     {
-        return view('settings::create');
+        $data = $request->validated();
+        $setting = Setting::first();
+
+        if ($request->hasFile('logo_src')) {
+            $data['logo_src'] = $request->file('logo_src')
+                ->store('settings', 'public');
+        }
+
+        if ($request->hasFile('favicon')) {
+            $data['favicon'] = $request->file('favicon')
+                ->store('settings', 'public');
+        }
+
+        if ($request->hasFile('footer_logo')) {
+            $data['footer_logo'] = $request->file('footer_logo')
+                ->store('settings', 'public');
+        }
+
+        Setting::updateOrCreate(
+            ['id' => ($setting->id ?? null)],
+            $data
+        );
+
+        return redirect()->back()->with('messages.education_success');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request) {}
-
-    /**
-     * Show the specified resource.
-     */
-    public function show($id)
-    {
-        return view('settings::show');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit($id)
-    {
-        return view('settings::edit');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $id) {}
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy($id) {}
 }
