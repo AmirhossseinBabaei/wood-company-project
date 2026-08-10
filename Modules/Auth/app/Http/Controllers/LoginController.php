@@ -27,7 +27,7 @@ class LoginController extends Controller
         $loginStatus = $loginService->login($data);
 
         if(false == $loginStatus) {
-            return view('Auth::login')->with('success', __('Auth::messages.login_failed'));
+            return view('auth::login')->with('error', __('Auth::messages.login_failed'));
         }
 
         return to_route('dashboard');
