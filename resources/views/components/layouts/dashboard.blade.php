@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="fa" dir="rtl">
-
 <head>
 
     <meta charset="UTF-8">
@@ -9,10 +8,8 @@
 
     <title>Dashboard</title>
 
-
     <!-- Bootstrap -->
     <link href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-
 
     <!-- Main Style -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
@@ -20,10 +17,8 @@
     <link href="{{ asset('assets/css/transparent-style.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/skin-modes.css') }}" rel="stylesheet">
 
-
     <!-- Icons -->
     <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet">
-
 
     <!-- Color -->
     <link id="theme"
@@ -31,7 +26,23 @@
           type="text/css"
           href="{{ asset('assets/colors/color1.css') }}">
 
+    <style>
+        .app-sidebar {
+            transition: all 0.3s ease;
+        }
 
+        .app-sidebar.sidebar-open {
+            transform: translateX(0);
+        }
+
+        .app-sidebar {
+            transition: transform 0.3s ease;
+        }
+
+        .app-sidebar.show {
+            transform: translateX(0);
+        }
+    </style>
     @yield('styles')
 
 </head>
@@ -46,11 +57,9 @@
 </div>
 
 
-
 <div class="page">
 
     <div class="page-main">
-
 
 
         <!-- HEADER -->
@@ -70,7 +79,6 @@
                     </div>
 
 
-
                     <div class="d-flex order-lg-2 ms-auto header-right-icons">
 
 
@@ -86,7 +94,6 @@
                         </button>
 
 
-
                         <div class="navbar navbar-collapse responsive-navbar p-0">
 
 
@@ -95,7 +102,6 @@
 
 
                                 <div class="d-flex order-lg-2">
-
 
 
                                     <!-- LANGUAGE -->
@@ -115,7 +121,6 @@ English
                                         </a>
 
                                     </div>
-
 
 
                                     <!-- DARK MODE -->
@@ -139,8 +144,6 @@ English
                                     </div>
 
 
-
-
                                     <!-- FULLSCREEN -->
 
                                     <div class="dropdown d-flex">
@@ -152,96 +155,6 @@ English
                                         </a>
 
                                     </div>
-
-
-
-
-
-                                    <!-- NOTIFICATION -->
-
-                                    <div class="dropdown d-flex notifications">
-
-
-                                        <a class="nav-link icon"
-                                           data-bs-toggle="dropdown">
-
-
-                                            <i class="fe fe-bell"></i>
-
-                                            <span class="pulse"></span>
-
-                                        </a>
-
-
-                                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-
-
-                                            <div class="drop-heading border-bottom">
-
-                                                <h6 class="mt-1 mb-0 fs-16 fw-semibold text-dark">
-                                                    Notifications
-                                                </h6>
-
-                                            </div>
-
-
-
-                                            <div class="notifications-menu">
-
-
-                                                <a class="dropdown-item d-flex"
-                                                   href="#">
-
-                                                    <div class="me-3 notifyimg bg-primary brround">
-
-                                                        <i class="fe fe-mail"></i>
-
-                                                    </div>
-
-
-                                                    <div>
-
-                                                        <h5 class="notification-label mb-1">
-                                                            New notification
-                                                        </h5>
-
-
-                                                        <span class="notification-subtext">
-3 days ago
-</span>
-
-
-                                                    </div>
-
-
-                                                </a>
-
-
-
-                                            </div>
-
-
-
-                                            <div class="dropdown-divider m-0"></div>
-
-
-                                            <a href="#"
-                                               class="dropdown-item text-center p-3 text-muted">
-
-                                                View all Notification
-
-                                            </a>
-
-
-                                        </div>
-
-
-                                    </div>
-
-
-
-
-
 
 
                                     <!-- PROFILE -->
@@ -262,7 +175,6 @@ English
                                         </a>
 
 
-
                                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
 
 
@@ -271,7 +183,7 @@ English
                                                 <div class="text-center">
 
                                                     <h5 class="text-dark mb-0 fs-14 fw-semibold">
-                                                        Admin
+                                                        {{ auth()->user()->first_name ?? '' }} {{ auth()->user()->last_name ?? '' }}
                                                     </h5>
 
 
@@ -284,46 +196,8 @@ English
 
                                             </div>
 
-
-
-                                            <div class="dropdown-divider m-0"></div>
-
-
                                             <a class="dropdown-item"
-                                               href="#">
-
-                                                <i class="dropdown-icon fe fe-user"></i>
-
-                                                Profile
-
-                                            </a>
-
-
-
-                                            <a class="dropdown-item"
-                                               href="#">
-
-                                                <i class="dropdown-icon fe fe-mail"></i>
-
-                                                Inbox
-
-                                            </a>
-
-
-
-                                            <a class="dropdown-item"
-                                               href="#">
-
-                                                <i class="dropdown-icon fe fe-lock"></i>
-
-                                                Lockscreen
-
-                                            </a>
-
-
-
-                                            <a class="dropdown-item"
-                                               href="#">
+                                               href="{{ route('auth.logout')  }}">
 
                                                 <i class="dropdown-icon fe fe-alert-circle"></i>
 
@@ -332,12 +206,10 @@ English
                                             </a>
 
 
-
                                         </div>
 
 
                                     </div>
-
 
 
                                 </div>
@@ -368,7 +240,6 @@ English
 
                 @yield('content')
 
-
             </div>
 
         </div>
@@ -376,412 +247,412 @@ English
         <!-- /CONTENT AREA -->
 
 
-
         <!-- APP SIDEBAR -->
-
         <div class="sticky">
-
             <div class="app-sidebar">
 
-
+                {{-- LOGO --}}
                 <div class="side-header">
-
-                    <a class="header-brand1"
-                       href="{{ route('dashboard') }}">
-
-
-                        <img src="{{ asset('modules/admin/images/logo.png') }}"
-                             class="header-brand-img desktop-logo"
-                             alt="logo">
-
-
+                    <a class="header-brand1" href="{{ route('dashboard') }}">
+                        <img
+                            src="{{ asset('assets/images/logos/logo.webp') }}"
+                            class="header-brand-img desktop-logo"
+                            width="50px"
+                            height="50px"
+                            alt="logo"
+                        >
                     </a>
-
                 </div>
-
-
-
-
 
                 <div class="main-sidemenu">
 
-
                     <ul class="side-menu">
 
-
-
-                        <!-- MAIN -->
-
+                        {{-- =========================
+                            MAIN
+                        ========================== --}}
                         <li class="sub-category">
-
-                            <h3>
-                                Main
-                            </h3>
-
+                            <h3>{{ __('Main') }}</h3>
                         </li>
 
-
-
-
-
+                        {{-- DASHBOARD --}}
                         <li class="slide">
-
-
-                            <a class="side-menu__item has-link
-{{ request()->routeIs('dashboard') ? 'active' : '' }}"
-                               href="{{ route('dashboard') }}">
-
-
+                            <a
+                                class="side-menu__item has-link {{ request()->routeIs('dashboard') ? 'active' : '' }}"
+                                href="{{ route('dashboard') }}"
+                            >
                                 <i class="side-menu__icon fe fe-home"></i>
 
-
                                 <span class="side-menu__label">
-
-Dashboard
-
-</span>
-
-
+                            {{ __('messages.Dashboard') }}
+                        </span>
                             </a>
-
-
                         </li>
 
 
-
-
-
-                        <!-- MANAGEMENT -->
-
+                        {{-- =========================
+                            MANAGEMENT
+                        ========================== --}}
                         <li class="sub-category">
-
-                            <h3>
-                                Management
-                            </h3>
-
+                            <h3>{{ __('Management') }}</h3>
                         </li>
 
 
-
-
-
-
-                        <!-- USERS -->
-
+                        {{-- =========================
+                            USERS
+                        ========================== --}}
                         <li class="slide
-{{ request()->routeIs('dashboard.users.*') ? 'is-expanded active' : '' }}">
-
-
-
-                            <a class="side-menu__item"
-                               data-bs-toggle="slide"
-                               href="javascript:void(0)">
-
-
-
+                    {{ request()->routeIs('dashboard.users.*') ? 'is-expanded active' : '' }}"
+                        >
+                            <a
+                                class="side-menu__item"
+                                data-bs-toggle="slide"
+                                href="javascript:void(0)"
+                            >
                                 <i class="side-menu__icon fe fe-users"></i>
 
-
-
                                 <span class="side-menu__label">
-
-Users
-
-</span>
-
-
+                            {{ __('messages.Users') }}
+                        </span>
 
                                 <i class="angle fe fe-chevron-right"></i>
-
-
                             </a>
-
-
-
-
 
                             <ul class="slide-menu">
 
-
-
                                 <li>
-
-                                    <a href="{{ route('dashboard.users.index') }}"
-                                       class="slide-item
-{{ request()->routeIs('dashboard.users.index') ? 'active' : '' }}">
-
-                                        All Users
-
+                                    <a
+                                        href="{{ route('dashboard.users.index') }}"
+                                        class="slide-item {{ request()->routeIs('dashboard.users.index') ? 'active' : '' }}"
+                                    >
+                                        {{ __('messages.All Users') }}
                                     </a>
-
                                 </li>
 
-
-
-
-
                                 <li>
-
-                                    <a href="{{ route('dashboard.users.create') }}"
-                                       class="slide-item
-{{ request()->routeIs('dashboard.users.create') ? 'active' : '' }}">
-
-                                        Create User
-
+                                    <a
+                                        href="{{ route('dashboard.users.create') }}"
+                                        class="slide-item {{ request()->routeIs('dashboard.users.create') ? 'active' : '' }}"
+                                    >
+                                        {{ __('messages.Create User') }}
                                     </a>
-
                                 </li>
-
-
 
                             </ul>
-
-
-
                         </li>
 
 
+                        {{-- =========================
+                            CONTACT US
+                        ========================== --}}
+                        <li class="slide
+                    {{ request()->routeIs('dashboard.contact-us.*') ? 'is-expanded active' : '' }}"
+                        >
+                            <a
+                                class="side-menu__item"
+                                data-bs-toggle="slide"
+                                href="javascript:void(0)"
+                            >
+                                <i class="side-menu__icon fe fe-mail"></i>
+
+                                <span class="side-menu__label">
+                            {{ __('messages.Contact Us') }}
+                        </span>
+
+                                <i class="angle fe fe-chevron-right"></i>
+                            </a>
+
+                            <ul class="slide-menu">
+
+                                <li>
+                                    <a
+                                        href="{{ route('dashboard.contact-us.index') }}"
+                                        class="slide-item {{ request()->routeIs('dashboard.contact-us.index') ? 'active' : '' }}"
+                                    >
+                                        {{ __('messages.All Messages') }}
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
 
 
+                        {{-- =========================
+                            GALLERY
+                        ========================== --}}
+                        <li class="slide
+                    {{ request()->routeIs('dashboard.galleries.*') ? 'is-expanded active' : '' }}"
+                        >
+                            <a
+                                class="side-menu__item"
+                                data-bs-toggle="slide"
+                                href="javascript:void(0)"
+                            >
+                                <i class="side-menu__icon fe fe-image"></i>
+
+                                <span class="side-menu__label">
+                            {{ __('messages.Gallery') }}
+                        </span>
+
+                                <i class="angle fe fe-chevron-right"></i>
+                            </a>
+
+                            <ul class="slide-menu">
+
+                                <li>
+                                    <a
+                                        href="{{ route('dashboard.galleries.index') }}"
+                                        class="slide-item {{ request()->routeIs('dashboard.galleries.index') ? 'active' : '' }}"
+                                    >
+                                        {{ __('messages.All Images') }}
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        href="{{ route('dashboard.galleries.create') }}"
+                                        class="slide-item {{ request()->routeIs('dashboard.galleries.create') ? 'active' : '' }}"
+                                    >
+                                        {{ __('messages.Add Image') }}
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+
+                        {{-- =========================
+                            MENU
+                        ========================== --}}
+                        <li class="slide
+                    {{ request()->routeIs('dashboard.menus.*') ? 'is-expanded active' : '' }}"
+                        >
+                            <a
+                                class="side-menu__item"
+                                data-bs-toggle="slide"
+                                href="javascript:void(0)"
+                            >
+                                <i class="side-menu__icon fe fe-menu"></i>
+
+                                <span class="side-menu__label">
+                            {{ __('messages.Menu') }}
+                        </span>
+
+                                <i class="angle fe fe-chevron-right"></i>
+                            </a>
+
+                            <ul class="slide-menu">
+
+                                <li>
+                                    <a
+                                        href="{{ route('dashboard.menus.index') }}"
+                                        class="slide-item {{ request()->routeIs('dashboard.menus.index') ? 'active' : '' }}"
+                                    >
+                                        {{ __('messages.All Menus') }}
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        href="{{ route('dashboard.menus.create') }}"
+                                        class="slide-item {{ request()->routeIs('dashboard.menus.create') ? 'active' : '' }}"
+                                    >
+                                        {{ __('messages.Create Menu') }}
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+
+                        {{-- =========================
+                            PROJECT
+                        ========================== --}}
+                        <li class="slide
+                    {{ request()->routeIs('dashboard.projects.*') ? 'is-expanded active' : '' }}"
+                        >
+                            <a
+                                class="side-menu__item"
+                                data-bs-toggle="slide"
+                                href="javascript:void(0)"
+                            >
+                                <i class="side-menu__icon fe fe-briefcase"></i>
+
+                                <span class="side-menu__label">
+                            {{ __('messages.Projects') }}
+                        </span>
+
+                                <i class="angle fe fe-chevron-right"></i>
+                            </a>
+
+                            <ul class="slide-menu">
+
+                                <li>
+                                    <a
+                                        href="{{ route('dashboard.projects.index') }}"
+                                        class="slide-item {{ request()->routeIs('dashboard.projects.index') ? 'active' : '' }}"
+                                    >
+                                        {{ __('messages.All Projects') }}
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        href="{{ route('dashboard.projects.create') }}"
+                                        class="slide-item {{ request()->routeIs('dashboard.projects.create') ? 'active' : '' }}"
+                                    >
+                                        {{ __('messages.Create Project') }}
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        href="{{ route('dashboard.properties.index') }}"
+                                        class="slide-item {{ request()->routeIs('dashboard.properties.index') ? 'active' : '' }}"
+                                    >
+                                        {{ __('messages.All Properties') }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        {{-- =========================
+                            SERVICES
+                        ========================== --}}
+                        <li class="slide
+                    {{ request()->routeIs('dashboard.services.*') ? 'is-expanded active' : '' }}"
+                        >
+                            <a
+                                class="side-menu__item"
+                                data-bs-toggle="slide"
+                                href="javascript:void(0)"
+                            >
+                                <i class="side-menu__icon fe fe-settings"></i>
+
+                                <span class="side-menu__label">
+                            {{ __('messages.Services') }}
+                        </span>
+
+                                <i class="angle fe fe-chevron-right"></i>
+                            </a>
+
+                            <ul class="slide-menu">
+
+                                <li>
+                                    <a
+                                        href="{{ route('dashboard.services.index') }}"
+                                        class="slide-item {{ request()->routeIs('dashboard.services.index') ? 'active' : '' }}"
+                                    >
+                                        {{ __('messages.All Services') }}
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        href="{{ route('dashboard.services.create') }}"
+                                        class="slide-item {{ request()->routeIs('dashboard.services.create') ? 'active' : '' }}"
+                                    >
+                                        {{ __('messages.Create Service') }}
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+
+                        {{-- =========================
+                            SLIDER SETTINGS
+                        ========================== --}}
+                        <li class="slide
+                    {{ request()->routeIs('dashboard.sliders.*') ? 'is-expanded active' : '' }}"
+                        >
+                            <a
+                                class="side-menu__item"
+                                data-bs-toggle="slide"
+                                href="javascript:void(0)"
+                            >
+                                <i class="side-menu__icon fe fe-sliders"></i>
+
+                                <span class="side-menu__label">
+                            {{ __('messages.Slider Settings') }}
+                        </span>
+
+                                <i class="angle fe fe-chevron-right"></i>
+                            </a>
+
+                            <ul class="slide-menu">
+
+                                <li>
+                                    <a
+                                        href="{{ route('dashboard.sliders.index') }}"
+                                        class="slide-item {{ request()->routeIs('dashboard.sliders.index') ? 'active' : '' }}"
+                                    >
+                                        {{ __('messages.All Sliders') }}
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        href="{{ route('dashboard.sliders.create') }}"
+                                        class="slide-item {{ request()->routeIs('dashboard.sliders.create') ? 'active' : '' }}"
+                                    >
+                                        {{ __('messages.Create Slider') }}
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+
+                        {{-- =========================
+                            SETTINGS
+                        ========================== --}}
+                        <li class="sub-category">
+                            <h3>{{ __('messages.System') }}</h3>
+                        </li>
+
+                        <li class="slide
+                    {{ request()->routeIs('dashboard.settings.*') ? 'is-expanded active' : '' }}"
+                        >
+                            <a
+                                class="side-menu__item"
+                                data-bs-toggle="slide"
+                                href="javascript:void(0)"
+                            >
+                                <i class="side-menu__icon fe fe-tool"></i>
+
+                                <span class="side-menu__label">
+                            {{ __('messages.Settings') }}
+                        </span>
+
+                                <i class="angle fe fe-chevron-right"></i>
+                            </a>
+
+                            <ul class="slide-menu">
+
+                                <li>
+                                    <a
+                                        href="{{ route('dashboard.settings.show') }}"
+                                        class="slide-item {{ request()->routeIs('dashboard.settings.show') ? 'active' : '' }}"
+                                    >
+                                        {{ __('messages.General Settings') }}
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
 
                     </ul>
 
-
-
                 </div>
 
-
             </div>
-
-
         </div>
-
-
         <!-- /APP SIDEBAR -->
 
 
-
-
-
         <!-- SIDEBAR RIGHT -->
-
-
-        <div class="sidebar sidebar-right sidebar-animate">
-
-
-            <div class="panel panel-primary card mb-0 shadow-none border-0">
-
-
-                <div class="tab-menu-heading border-0 d-flex p-3">
-
-
-                    <div class="card-title mb-0">
-
-                        <i class="fe fe-bell me-2"></i>
-
-                        Notifications
-
-                    </div>
-
-
-
-                    <div class="card-options ms-auto">
-
-
-                        <a href="javascript:void(0)"
-                           class="sidebar-icon text-end float-end"
-                           data-bs-toggle="sidebar-right"
-                           data-target=".sidebar-right">
-
-
-                            <i class="fe fe-x"></i>
-
-
-                        </a>
-
-
-                    </div>
-
-
-                </div>
-
-
-
-
-
-                <div class="panel-body tabs-menu-body latest-tasks p-0 border-0">
-
-
-                    <div class="tabs-menu border-bottom">
-
-
-                        <ul class="nav panel-tabs">
-
-
-                            <li>
-
-                                <a href="#side1"
-                                   class="active"
-                                   data-bs-toggle="tab">
-
-                                    Feeds
-
-                                </a>
-
-                            </li>
-
-
-
-                            <li>
-
-                                <a href="#side2"
-                                   data-bs-toggle="tab">
-
-                                    Chat
-
-                                </a>
-
-                            </li>
-
-
-
-                            <li>
-
-                                <a href="#side3"
-                                   data-bs-toggle="tab">
-
-                                    Timeline
-
-                                </a>
-
-                            </li>
-
-
-                        </ul>
-
-
-                    </div>
-
-
-
-
-
-                    <div class="tab-content">
-
-
-
-                        <div class="tab-pane active"
-                             id="side1">
-
-
-                            <div class="p-4">
-
-
-                                <h5>
-                                    Feeds
-                                </h5>
-
-
-                                <div class="card">
-
-
-                                    <div class="card-body">
-
-
-                                        <p>
-                                            New user registered
-                                        </p>
-
-
-                                        <p>
-                                            New order received
-                                        </p>
-
-
-                                        <p>
-                                            Server notification
-                                        </p>
-
-
-                                    </div>
-
-
-                                </div>
-
-
-                            </div>
-
-
-                        </div>
-
-
-
-
-
-
-                        <div class="tab-pane"
-                             id="side2">
-
-
-                            <div class="p-4">
-
-
-                                <h5>
-                                    Messages
-                                </h5>
-
-
-                                <p>
-                                    No messages
-                                </p>
-
-
-                            </div>
-
-
-                        </div>
-
-
-
-
-
-
-
-                        <div class="tab-pane"
-                             id="side3">
-
-
-                            <div class="p-4">
-
-
-                                <h5>
-                                    Timeline
-                                </h5>
-
-
-                                <p>
-                                    No activity
-                                </p>
-
-
-                            </div>
-
-
-                        </div>
-
-
-
-                    </div>
-
-
-                </div>
-
-
-            </div>
-
-
-        </div>
-
 
 
         <!-- /SIDEBAR RIGHT -->
@@ -809,12 +680,10 @@ Users
                     </div>
 
 
-
                     <div class="modal-body">
 
 
                         <ul class="row p-3">
-
 
 
                             <li class="col-lg-6 mb-2">
@@ -831,7 +700,6 @@ Users
                             </li>
 
 
-
                             <li class="col-lg-6 mb-2">
 
                                 <a href="javascript:void(0)"
@@ -844,7 +712,6 @@ Users
                                 </a>
 
                             </li>
-
 
 
                             <li class="col-lg-6 mb-2">
@@ -861,7 +728,6 @@ Users
                             </li>
 
 
-
                         </ul>
 
 
@@ -873,7 +739,6 @@ Users
             </div>
 
         </div>
-
 
 
         <!-- FOOTER -->
@@ -895,9 +760,7 @@ Users
                         <span id="year"></span>
 
 
-                        Simaresane
-
-                        All rights reserved.
+                        {{ __('messages.developed_by') }}
 
 
                     </div>
@@ -912,13 +775,9 @@ Users
         </footer>
 
 
-
-
-
     </div>
 
 </div>
-
 
 
 <!-- BACK TO TOP -->
@@ -931,15 +790,9 @@ Users
 </a>
 
 
-
-
-
-
 <!-- JQUERY -->
 
 <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
-
-
 
 
 <!-- BOOTSTRAP -->
@@ -949,20 +802,14 @@ Users
 <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
 
 
-
-
-
 <!-- SIDEBAR -->
 
 <script src="{{ asset('assets/plugins/sidebar/sidebar.js') }}"></script>
 
 
-
 <!-- SIDE MENU -->
 
 <script src="{{ asset('assets/plugins/sidemenu/sidemenu.js') }}"></script>
-
-
 
 
 <!-- PERFECT SCROLL -->
@@ -972,8 +819,6 @@ Users
 <script src="{{ asset('assets/plugins/p-scroll/pscroll.js') }}"></script>
 
 
-
-
 <!-- VECTOR MAP -->
 
 <script src="{{ asset('assets/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js') }}"></script>
@@ -981,23 +826,27 @@ Users
 <script src="{{ asset('assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
 
 
-
-
-
 <!-- THEME -->
 
 <script src="{{ asset('assets/js/themeColors.js') }}"></script>
 
 
-
-
 <!-- CUSTOM -->
 
 <script src="{{ asset('assets/js/custom.js') }}"></script>
-
-
-
-
+<script> document.addEventListener('DOMContentLoaded', function () {
+        const toggleButton = document.querySelector('.app-sidebar-toggle');
+        const sidebar = document.querySelector('.app-sidebar');
+        if (!toggleButton || !sidebar) return;
+        toggleButton.addEventListener('click', function () {
+            const isOpen = sidebar.classList.toggle('show');
+            if (isOpen) {
+                sidebar.style.transform = 'translateX(0)';
+            } else {
+                sidebar.style.transform = 'translateX(-100%)';
+            }
+        });
+    }); </script>
 @yield('scripts')
 
 
