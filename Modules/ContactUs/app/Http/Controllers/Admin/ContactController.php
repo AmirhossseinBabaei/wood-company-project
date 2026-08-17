@@ -28,7 +28,7 @@ class ContactController extends Controller
     {
         $contactMessage->update(['is_read' => 'true']);
 
-        return to_route('dashboard.contact-us.index')
+        return to_route((app()->getLocale() . '.dashboard.contact-us.index'))
             ->with('success', __('messages.education_success'));
     }
 }
