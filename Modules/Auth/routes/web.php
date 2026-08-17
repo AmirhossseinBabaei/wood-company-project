@@ -14,9 +14,18 @@ Route::prefix('auth')->name('auth.')->group(function(){
 });
 
 //dashboard route
-Route::middleware('auth')
-    ->get('dashboard', [\Modules\Auth\Http\Controllers\DashboardController::class, 'dashboard'])
-    ->name('dashboard');
+
+Route::middleware(\App\Http\Middleware\FaLocale::class)->prefix('fa')->name('fa.')->group(function (){
+    Route::middleware('auth')
+        ->get('dashboard', [\Modules\Auth\Http\Controllers\DashboardController::class, 'dashboard'])
+        ->name('dashboard');
+});
+
+Route::middleware(\App\Http\Middleware\EnLocale::class)->prefix('en')->name('en.')->group(function (){
+    Route::middleware('auth')
+        ->get('dashboard', [\Modules\Auth\Http\Controllers\DashboardController::class, 'dashboard'])
+        ->name('dashboard');
+});
 
 Route::get('hash', function(){
     dd(\Illuminate\Support\Facades\Hash::make('hosein'));
