@@ -30,6 +30,6 @@ class LoginController extends Controller
             return view('auth::login')->with('error', __('Auth::messages.login_failed'));
         }
 
-        return to_route('dashboard');
+        return to_route((app()->getLocale() . '.dashboard'));
     }
 }
