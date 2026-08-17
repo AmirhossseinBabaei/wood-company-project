@@ -200,5 +200,15 @@ return [
     'System' => 'سیستم',
     'Settings' => 'تنظیمات',
     'General Settings' => 'تنظیمات عمومی',
-    'All Properties' => 'کل ویژگی ها'
+    'All Properties' => 'کل ویژگی ها',
+    'telegram' => 'تلگرام',
+    'instagram' => 'اینستاگرام',
+    'whatsapp' => 'واتساپ',
+    'linkedin' => 'لینکدین',
+    'copyright' => '© 2026 تمامی حقوق محفوظ است.',
+    'next' => 'بعدی',
+    'previous' => 'قبلی',
+    'lang_fa' => 'فارسی',
+    'lang_en' => 'انگلیسی',
+    'select_language' => 'انتخاب زبان'
 ];
