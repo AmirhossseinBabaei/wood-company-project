@@ -1,12 +1,6 @@
 <?php
 
 return [
-    'password' => 'Password',
-    'login' => 'Log in',
-    'welcome' => 'Welcome',
-    'sign_in' => 'Sign in to your account',
-    'email' => 'Email',
-
     // Dashboard
     'dashboard' => 'Dashboard',
 
@@ -32,4 +26,12 @@ return [
     // Table
     'title' => 'Title',
     'created_at' => 'Created At',
+
+    //Authentication
+    'login_failed' => 'Login Failed with Error',
+    'password' => 'Password',
+    'login' => 'Log in',
+    'welcome' => 'Welcome',
+    'sign_in' => 'Sign in to your account',
+    'email' => 'Email'
 ];
