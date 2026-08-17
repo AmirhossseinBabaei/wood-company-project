@@ -16,7 +16,7 @@
         </div>
 
         <form
-            action="{{ route('dashboard.sliders.update', $slider) }}"
+            action="{{ route((app()->getLocale() . '.dashboard.sliders.update'), $slider) }}"
             method="POST"
             enctype="multipart/form-data"
         >
@@ -200,7 +200,7 @@
                 </button>
 
                 <a
-                    href="{{ route('dashboard.sliders.index') }}"
+                    href="{{ route((app()->getLocale() . '.dashboard.sliders.index')) }}"
                     class="btn btn-secondary"
                 >
                     {{ __('Slider::words.back') }}
