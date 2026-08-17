@@ -1,56 +1,35 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\ContactUs\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
+use Modules\ContactUs\app\Models\ContactMessage;
+use Modules\ContactUs\Http\Requests\ContactMessageRequest;
 
 class ContactController extends Controller
 {
+
     /**
-     * Display a listing of the resource.
+     * @return View
      */
-    public function index()
+    public function index(): View
     {
-        return view('contactus::index');
+        return view('contactus::front.contact-us');
     }
 
     /**
-     * Show the form for creating a new resource.
+     * @param ContactMessageRequest $request
+     * @return RedirectResponse
      */
-    public function create()
+    public function sendForm(ContactMessageRequest $request): RedirectResponse
     {
-        return view('contactus::create');
+        $data = $request->validated();
+        ContactMessage::create($data);
+
+        return back()->with('success', __('messages.education_success'));
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request) {}
-
-    /**
-     * Show the specified resource.
-     */
-    public function show($id)
-    {
-        return view('contactus::show');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit($id)
-    {
-        return view('contactus::edit');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $id) {}
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy($id) {}
 }
