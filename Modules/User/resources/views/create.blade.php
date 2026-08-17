@@ -1,14 +1,10 @@
 @extends('components.layouts.dashboard')
 
-
 @section('title', __('User::words.create_user'))
-
 
 @section('content')
 
-
     <div class="card">
-
 
         <div class="card-header">
 
@@ -33,11 +29,9 @@
             @endif
 
             <form method="POST"
-                  action="{{ route('dashboard.users.store') }}">
-
+                  action="{{ route((app()->getLocale() . '.dashboard.users.store')) }}">
 
                 @csrf
-
 
                 <div class="mb-3">
 
