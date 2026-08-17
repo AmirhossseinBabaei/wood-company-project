@@ -2,31 +2,45 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('auth')->name('auth.')->group(function(){
-    Route::get('login', [\Modules\Auth\Http\Controllers\LoginController::class, 'showForm'])
-        ->name('loginForm');
+//Authentication Routes.
+Route::prefix('auth')
+    ->middleware(\App\Http\Middleware\Guest::class)
+    ->name('auth.')->group(function () {
 
-    Route::post('login', [\Modules\Auth\Http\Controllers\LoginController::class, 'login'])
-        ->name('login');
+        Route::get('login', [\Modules\Auth\Http\Controllers\LoginController::class, 'showForm'])
+            ->name('loginForm');
 
-    Route::get('logout', [\Modules\Auth\Http\Controllers\LogoutController::class, 'logout'])
-        ->name('logout');
-});
+        Route::post('login', [\Modules\Auth\Http\Controllers\LoginController::class, 'login'])
+            ->name('login');
 
-//dashboard route
+        Route::get('logout', [\Modules\Auth\Http\Controllers\LogoutController::class, 'logout'])
+            ->name('logout');
+    });
 
-Route::middleware(\App\Http\Middleware\FaLocale::class)->prefix('fa')->name('fa.')->group(function (){
-    Route::middleware('auth')
-        ->get('dashboard', [\Modules\Auth\Http\Controllers\DashboardController::class, 'dashboard'])
-        ->name('dashboard');
-});
+//Persian lang for dashboard routes
+Route::prefix('fa')
+    ->middleware([
+        \App\Http\Middleware\FaLocale::class,
+        'auth',
+    ])->name('fa.')
+    ->group(function () {
 
-Route::middleware(\App\Http\Middleware\EnLocale::class)->prefix('en')->name('en.')->group(function (){
-    Route::middleware('auth')
-        ->get('dashboard', [\Modules\Auth\Http\Controllers\DashboardController::class, 'dashboard'])
-        ->name('dashboard');
-});
+        Route::get('dashboard', [
+            \Modules\Auth\Http\Controllers\DashboardController::class,
+            'dashboard'
+        ])->name('dashboard');
+    });
 
-Route::get('hash', function(){
-    dd(\Illuminate\Support\Facades\Hash::make('hosein'));
-});
+//English lang for dashboard routes
+Route::prefix('en')
+    ->middleware([
+        \App\Http\Middleware\EnLocale::class,
+        'auth',
+    ])->name('en.')
+    ->group(function () {
+
+        Route::get('dashboard', [
+            \Modules\Auth\Http\Controllers\DashboardController::class,
+            'dashboard'
+        ])->name('dashboard');
+    });
