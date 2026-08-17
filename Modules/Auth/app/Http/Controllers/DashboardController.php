@@ -26,9 +26,9 @@ class DashboardController extends Controller
                 'contact_messages_count' => ContactMessage::count(),
                 'services' => Service::count()
             ],
-            'latest_projects' => Project::latest()->paginate(5),
-            'latest_services' => Service::latest()->paginate(5),
-            'latest_sliders' => Slider::latest()->paginate(5)
+            'latest_projects' => Project::latest()->take(3)->get(),
+            'latest_services' => Service::latest()->take(3)->get(),
+            'latest_sliders' => Slider::latest()->take(3)->get()
         ];
 
        return view('auth::dashboard', compact('data'));
