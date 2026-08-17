@@ -114,5 +114,16 @@ return [
     'System' => 'System',
     'Settings' => 'Settings',
     'General Settings' => 'General Settings',
-    'All Properties' => 'All Properties'
+    'All Properties' => 'All Properties',
+    'copyright' => 'All right Reserved ©',
+    'developed_by' => 'Developed By Simarsane Shahr',
+    'telegram' => 'Telegram',
+    'instagram' => 'Instagram',
+    'whatsapp' => 'Whatsapp',
+    'linkedin' => 'Linkedin',
+    'next' => 'Next',
+    'previous' => 'Previous',
+    'lang_fa' => 'Persian',
+    'lang_en' => 'English',
+    'select_language' => 'Select Language'
 ];
