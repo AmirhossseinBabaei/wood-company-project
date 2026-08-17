@@ -36,7 +36,7 @@
                     @endif
 
 
-                    <form action="{{ route('dashboard.galleries.update',$gallery) }}"
+                    <form action="{{ route((app()->getLocale() . '.dashboard.galleries.update'), $gallery) }}"
                           method="POST"
                           enctype="multipart/form-data">
 
@@ -243,8 +243,7 @@
                             </button>
 
 
-
-                            <a href="{{ route('dashboard.galleries.index') }}"
+                            <a href="{{ route((app()->getLocale() . '.dashboard.galleries.index')) }}"
                                class="btn btn-secondary">
 
                                 {{ __('Gallery::words.back') }}
