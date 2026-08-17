@@ -8,10 +8,15 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginService
 {
-    //login logic
+    /**
+     * @param array $data
+     * @return bool
+     */
     public function login(array $data): bool
     {
-        if (! Auth::attempt($data)) {
+        if (!Auth::attempt($data)) {
+
+            //Login Failed :return false.
             return false;
         }
 
@@ -19,6 +24,7 @@ class LoginService
             ->session()
             ->regenerate();
 
+        //Login Successfully :return true and regenerate session.
         return true;
     }
 }
