@@ -47,7 +47,7 @@ class GalleryController extends Controller
 
         Gallery::create($data);
 
-        return to_route('dashboard.galleries.index')
+        return to_route((app()->getLocale() . '.dashboard.galleries.index'))
             ->with('success', __('messages.education_success'));
     }
 
@@ -86,7 +86,7 @@ class GalleryController extends Controller
 
         $gallery->update($data);
 
-        return to_route('dashboard.galleries.index')
+        return to_route((app()->getLocale() . '.dashboard.galleries.index'))
             ->with('success', __('messages.education_success'));
     }
 
@@ -101,7 +101,7 @@ class GalleryController extends Controller
 
         $gallery->delete();
 
-        return to_route('dashboard.galleries.index')
+        return to_route((app()->getLocale() . '.dashboard.galleries.index'))
             ->with('success', __('messages.education_success'));
     }
 }
