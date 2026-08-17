@@ -14,7 +14,7 @@
             </h4>
 
             <a
-                href="{{ route('dashboard.sliders.edit', $slider) }}"
+                href="{{ route((app()->getLocale() . '.dashboard.sliders.edit'), $slider) }}"
                 class="btn btn-warning"
             >
                 {{ __('Slider::words.edit') }}
@@ -117,7 +117,7 @@
         <div class="card-footer">
 
             <a
-                href="{{ route('dashboard.sliders.index') }}"
+                href="{{ route((app()->getLocale() . '.dashboard.sliders.index')) }}"
                 class="btn btn-secondary"
             >
                 {{ __('Slider::words.back') }}
