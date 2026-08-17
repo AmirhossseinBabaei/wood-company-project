@@ -21,8 +21,7 @@
                 {{ __('User::words.users') }}
             </h3>
 
-
-            <a href="{{ route('dashboard.users.create') }}"
+            <a href="{{ route((app()->getLocale() . '.dashboard.users.create')) }}"
                class="btn btn-primary">
 
                 {{ __('User::words.create_user') }}
@@ -78,8 +77,6 @@
 
                     </thead>
 
-
-
                     <tbody>
 
 
@@ -108,8 +105,7 @@
 
                             <td>
 
-
-                                <a href="{{ route('dashboard.users.show',$user) }}"
+                                <a href="{{ route((app()->getLocale() . '.dashboard.users.show'),$user) }}"
                                    class="btn btn-info btn-sm">
 
                                     {{ __('User::words.view') }}
@@ -117,7 +113,7 @@
                                 </a>
 
 
-                                <a href="{{ route('dashboard.users.edit',$user) }}"
+                                <a href="{{  route((app()->getLocale() . '.dashboard.users.edit'),$user) }}"
                                    class="btn btn-warning btn-sm">
 
                                     {{ __('User::words.edit_user') }}
@@ -126,7 +122,7 @@
 
 
 
-                                <form action="{{ route('dashboard.users.destroy',$user) }}"
+                                <form action="{{  route((app()->getLocale() . '.dashboard.users.destroy'),$user) }}"
                                       method="POST"
                                       class="d-inline">
 
