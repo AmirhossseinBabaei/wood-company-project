@@ -37,7 +37,7 @@
 
                     <div>
 
-                        <a href="{{ route('dashboard.galleries.edit',$gallery) }}"
+                        <a href="{{ route((app()->getLocale() . '.dashboard.galleries.edit'), $gallery) }}"
                            class="btn btn-warning">
 
                             <i class="fe fe-edit"></i>
@@ -47,7 +47,7 @@
                         </a>
 
 
-                        <a href="{{ route('dashboard.galleries.index') }}"
+                        <a href="{{ route((app()->getLocale() . '.dashboard.galleries.index')) }}"
                            class="btn btn-secondary">
 
                             {{ __('Gallery::words.back') }}
