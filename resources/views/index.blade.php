@@ -11,7 +11,7 @@
     <script type="module" src="/src/main.js"></script>
     <link rel="stylesheet" href="{{ asset('styles/style.css') }}">
     <script src="{{ asset('js/main.js') }}"></script>
-    <script src="{{ asset('js/script.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <meta name="description"
         content="شرکت فرایند شیمی نوین آسیا تولیدکننده انواع گوگرد گرانوله، گوگرد پودری و گوگرد کلوخه با صادرات به کشورهای مختلف.">
     <meta name="keywords" content="گوگرد، گوگرد گرانوله، گوگرد پودری، گوگرد کلوخه، صادرات گوگرد، تولید گوگرد">

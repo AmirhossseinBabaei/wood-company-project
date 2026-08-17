@@ -1,0 +1,264 @@
+.contact-page {
+
+    background: #1F201C;
+
+    min-height: 700px;
+
+    padding: 100px 0;
+
+    color: white;
+
+}
+
+
+.contact-header {
+
+    text-align: center;
+
+    margin-bottom: 70px;
+
+}
+
+
+.contact-header span {
+
+    color: #C6A86A;
+
+    letter-spacing: 4px;
+
+}
+
+
+.contact-header h1 {
+
+    font-size: 45px;
+
+    font-weight: 800;
+
+    margin: 20px 0;
+
+}
+
+
+.contact-header p {
+
+    color: #aaa;
+
+    max-width: 600px;
+
+    margin: auto;
+
+    line-height: 2;
+
+}
+
+
+
+.contact-box {
+
+    display: flex;
+
+    gap: 40px;
+
+    background: #292A25;
+
+    border-radius: 35px;
+
+    padding: 50px;
+
+    box-shadow: 0 30px 70px rgba(0, 0, 0, .4);
+
+}
+
+
+
+.contact-info {
+
+    width: 40%;
+
+}
+
+
+.contact-info h3,
+.contact-form h3 {
+
+    font-size: 25px;
+
+    margin-bottom: 35px;
+
+}
+
+
+
+.info-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.info-item span {
+
+    width: 45px;
+
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #C6A86A;
+
+    border-radius: 50%;
+
+}
+
+
+
+.info-item p {
+
+    color: #ddd;
+
+}
+
+
+
+
+.social-contact {
+
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 40px;
+
+}
+
+
+.social-contact a {
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 10px 25px;
+
+    border: 1px solid #555;
+
+    border-radius: 30px;
+
+    transition: .3s;
+
+}
+
+
+.social-contact a:hover {
+
+    background: #C6A86A;
+
+    border-color: #C6A86A;
+
+}
+
+
+
+
+.contact-form {
+
+    width: 60%;
+
+}
+
+
+
+.input-group {
+
+    display: flex;
+
+    gap: 20px;
+
+}
+
+
+.contact-form input,
+.contact-form textarea {
+
+
+    width: 100%;
+
+    background: #20211D;
+
+    border: 1px solid #444;
+
+    padding: 18px;
+
+    border-radius: 15px;
+
+    color: white;
+
+    margin-bottom: 20px;
+
+    outline: none;
+
+}
+
+
+
+.contact-form textarea {
+
+    height: 150px;
+
+    resize: none;
+
+}
+
+
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+
+    border-color: #C6A86A;
+
+}
+
+
+
+.contact-form button {
+
+    width: 180px;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 40px;
+
+    background: #C6A86A;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+
+
+.contact-form button:hover {
+
+    background: white;
+
+    color: #222;
+
+}
