@@ -29,5 +29,9 @@ return [
     'whatsapp' => 'WhatsApp',
 
     'success_update' => 'Settings updated successfully.',
-    'saved_images' => 'Saved images'
+    'saved_images' => 'Saved images',
+    'owner_full_name' => 'Owner fullName',
+    'owner_bio' => 'Owner biography',
+    'owner_avatar' => 'Owner Avatar',
+    'hero_title' => 'Hero Title'
 ];

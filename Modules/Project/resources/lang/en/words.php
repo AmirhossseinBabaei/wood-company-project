@@ -66,5 +66,7 @@ return [
     'fa_name' => 'Persian name',
     'en_name' => 'English name',
     'english_property_value' => 'English Property value',
-    'fa_property_value' => 'Persian Property Value'
+    'fa_property_value' => 'Persian Property Value',
+    'projects_desc' => 'Other Projects Created:',
+    'project_details' => 'Project Description',
 ];

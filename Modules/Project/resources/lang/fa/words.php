@@ -66,5 +66,7 @@ return [
     'fa_name' => 'نام فارسی',
     'en_name' => 'نام انگلیسی',
     'english_property_value' => 'مقدار ویژگی به انگلیسی',
-    'fa_property_value' => 'مقدار ویژگی به فارسی'
+    'fa_property_value' => 'مقدار ویژگی به فارسی',
+    'projects_desc' => 'کمک به رویاها برای تبدیل شدن به واقعیت',
+    'project_details' => 'جزییات پروژه'
 ];
