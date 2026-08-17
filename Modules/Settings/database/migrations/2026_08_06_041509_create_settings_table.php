@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
 
             $table->string('fa_website_name')->nullable();
-            $table->string('fa_website_description')->nullable();
+            $table->text('fa_website_description')->nullable();
 
             $table->string('en_website_name')->nullable();
-            $table->string('en_website_description')->nullable();
+            $table->text('en_website_description')->nullable();
 
             $table->string('logo_src')->nullable();
             $table->string('favicon')->nullable();
@@ -36,6 +36,15 @@ return new class extends Migration
             $table->string('linkedin')->nullable();
             $table->string('whatsapp')->nullable();
 
+            $table->string('en_owner_full_name')->nullable();
+            $table->string('en_owner_bio')->nullable();
+            $table->string('en_hero_title')->nullable();
+
+            $table->string('fa_owner_full_name')->nullable();
+            $table->string('fa_owner_bio')->nullable();
+            $table->string('fa_hero_title')->nullable();
+
+            $table->string('owner_avatar')->nullable();
             $table->timestamps();
         });
     }
