@@ -6,7 +6,8 @@
     "priority": 0,
     "providers": [
         "Modules\\Gallery\\Providers\\GalleryServiceProvider",
-        "Modules\\Gallery\\Providers\\LangServiceProvider"
+        "Modules\\Gallery\\Providers\\LangServiceProvider",
+        "Modules\\Gallery\\Providers\\ViewServiceProvider"
     ],
     "files": []
 }
