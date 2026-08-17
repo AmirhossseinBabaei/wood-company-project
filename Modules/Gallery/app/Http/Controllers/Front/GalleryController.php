@@ -1,16 +1,25 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Gallery\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use Illuminate\View\View;
 use Modules\Gallery\app\Models\Gallery;
 
-class GalleryController extends Controller
+class
+GalleryController extends Controller
 {
-    public function index()
+    /**
+     * @return View
+     */
+    public function index(): View
     {
-        $galleries = Gallery::orderBy('id', 'desc')->paginate(10);
+        $galleries = Gallery::activeGalleries()
+            ->latest('sort_order')
+            ->paginate(10);
 
-        return view('gallery::front.index', compact('galleries'));
+        return view('gallery::front.gallery', compact('galleries'));
     }
 }
