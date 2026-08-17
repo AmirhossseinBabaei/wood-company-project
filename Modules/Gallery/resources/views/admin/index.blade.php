@@ -16,7 +16,7 @@
                         {{ __('Gallery::words.gallery_list') }}
                     </h3>
 
-                    <a href="{{ route('dashboard.galleries.create') }}"
+                    <a href="{{ route((app()->getLocale() . '.dashboard.galleries.create')) }}"
                        class="btn btn-primary">
 
                         <i class="fe fe-plus"></i>
@@ -158,7 +158,7 @@
                                     <td>
 
 
-                                        <a href="{{ route('dashboard.galleries.show',$gallery) }}"
+                                        <a href="{{ route((app()->getLocale() . '.dashboard.galleries.show'), $gallery) }}"
                                            class="btn btn-sm btn-info">
 
                                             <i class="fe fe-eye"></i>
@@ -167,7 +167,7 @@
 
 
 
-                                        <a href="{{ route('dashboard.galleries.edit',$gallery) }}"
+                                        <a href="{{ route((app()->getLocale() . '.dashboard.galleries.edit'), $gallery) }}"
                                            class="btn btn-sm btn-warning">
 
                                             <i class="fe fe-edit"></i>
@@ -176,7 +176,7 @@
 
 
 
-                                        <form action="{{ route('dashboard.galleries.destroy',$gallery) }}"
+                                        <form action="{{ route((app()->getLocale() . '.dashboard.galleries.destroy'), $gallery) }}"
                                               method="POST"
                                               class="d-inline">
 
