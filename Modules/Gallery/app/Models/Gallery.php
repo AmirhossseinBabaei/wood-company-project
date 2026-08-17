@@ -9,6 +9,11 @@ class Gallery extends Model
 {
     use HasFactory;
 
+    //active constraint variable
+    public const ACTIVE = 'active';
+    //inactive constraint variable
+    public const INACTIVE = 'inactive';
+
     protected $fillable = [
         'fa_title',
         'en_title',
@@ -18,4 +23,15 @@ class Gallery extends Model
         'image',
         'status'
     ];
+
+    /**
+     * @param $query
+     * @return $this
+     */
+    public function scopeActiveGalleries($query): static
+    {
+        $query->where('status', self::ACTIVE);
+
+        return $this;
+    }
 }
