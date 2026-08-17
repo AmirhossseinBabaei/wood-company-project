@@ -64,13 +64,13 @@
                     {{ __('User::words.created_at') }}:
                 </strong>
 
-                {{ $user->created_at }}
+                {{ $user->created_at ?? '-' }}
 
             </p>
 
 
 
-            <a href="{{ route('dashboard.users.index') }}"
+            <a href="{{ route((app()->getLocale() . '.dashboard.users.index')) }}"
                class="btn btn-secondary">
 
                 {{ __('User::words.back') }}
