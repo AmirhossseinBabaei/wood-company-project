@@ -49,6 +49,11 @@ class SettingsController extends Controller
                 ->store('settings', 'public');
         }
 
+        if ($request->hasFile('owner_avatar')) {
+            $data['owner_avatar'] = $request->file('owner_avatar')
+                ->store('settings', 'public');
+        }
+
         Setting::updateOrCreate(
             ['id' => ($setting->id ?? null)],
             $data
