@@ -7,6 +7,13 @@
     <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('modules/auth/css/login.css') }}">
+    <style>
+       .login-page{
+           position: absolute;
+           top:0 !important;
+           width:100% !important;
+       }
+    </style>
 </head>
 <body>
 
