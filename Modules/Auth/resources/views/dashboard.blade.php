@@ -20,6 +20,14 @@
                 display:block !important;
             }
         }
+        @font-face {
+            font-family: 'Sans';
+            src: url('/assets/fonts/kharazm.ttf');
+        }
+
+        *{
+            font-family: 'Sans';
+        }
     </style>
 @endsection
 
@@ -51,7 +59,6 @@
                     </div>
                 </div>
                 <!-- PAGE HEADER END -->
-
 
                 <!-- STATISTICS -->
                 <div class="row">
@@ -183,7 +190,7 @@
                                     {{ __('Auth::words.latest_projects') }}
                                 </h3>
 
-                                <a href="{{ route('dashboard.projects.index') }}"
+                                <a href="{{ route((app()->getLocale() . '.dashboard.projects.index')) }}"
                                    class="btn btn-sm btn-primary">
                                     {{ __('Auth::words.view_all') }}
                                 </a>
@@ -233,10 +240,6 @@
                                         </table>
                                     </div>
 
-                                    <div class="mt-3">
-                                        {{ $data['latest_projects']->links() }}
-                                    </div>
-
                                 @else
 
                                     <div class="text-center py-5">
@@ -264,8 +267,7 @@
                                 <h3 class="card-title">
                                     {{ __('Auth::words.latest_services') }}
                                 </h3>
-
-                                <a href="{{ route('dashboard.services.index') }}"
+                                <a href="{{ route((app()->getLocale() . ".dashboard.services.index")) }}"
                                    class="btn btn-sm btn-success">
                                     {{ __('Auth::words.view_all') }}
                                 </a>
@@ -314,11 +316,6 @@
 
                                         </table>
                                     </div>
-
-                                    <div class="mt-3">
-                                        {{ $data['latest_services']->links() }}
-                                    </div>
-
                                 @else
 
                                     <div class="text-center py-5">
@@ -354,7 +351,7 @@
                                     {{ __('Auth::words.latest_sliders') }}
                                 </h3>
 
-                                <a href="{{ route('dashboard.sliders.index') }}"
+                                <a href="{{ route((app()->getLocale() . '.dashboard.sliders.index')) }}"
                                    class="btn btn-sm btn-warning">
                                     {{ __('Auth::words.view_all') }}
                                 </a>
@@ -407,10 +404,6 @@
                                             </tbody>
 
                                         </table>
-                                    </div>
-
-                                    <div class="mt-3">
-                                        {{ $data['latest_sliders']->links() }}
                                     </div>
 
                                 @else
