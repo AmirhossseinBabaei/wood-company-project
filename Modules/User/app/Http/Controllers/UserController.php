@@ -41,7 +41,7 @@ class UserController extends Controller
 
         User::create($data);
 
-        return to_route('dashboard.users.index')->with('success', __('messages.education_success'));
+        return to_route((app()->getLocale() . '.dashboard.users.index'))->with('success', __('messages.education_success'));
     }
 
     /**
@@ -69,7 +69,7 @@ class UserController extends Controller
 
         $user->update($data);
 
-        return to_route('dashboard.users.index')->with('success', __('messages.education_success'));
+        return to_route((app()->getLocale() . '.dashboard.users.index'))->with('success', __('messages.education_success'));
     }
 
     /**
@@ -79,6 +79,6 @@ class UserController extends Controller
     {
         $user->delete();
 
-        return to_route('dashboard.users.index')->with('success', __('messages.education_success'));
+        return to_route((app()->getLocale() . '.dashboard.users.index'))->with('success', __('messages.education_success'));
     }
 }
