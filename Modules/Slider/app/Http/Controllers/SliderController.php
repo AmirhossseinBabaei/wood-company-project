@@ -49,7 +49,7 @@ class SliderController extends Controller
 
         Slider::create($data);
 
-        return to_route('dashboard.sliders.index')
+        return to_route((app()->getLocale() . '.dashboard.sliders.index'))
             ->with('success', __('messages.educationSuccess'));
     }
 
@@ -81,7 +81,7 @@ class SliderController extends Controller
 
         $slider->update($data);
 
-        return to_route('dashboard.sliders.index')
+        return to_route((app()->getLocale() . '.dashboard.sliders.index'))
             ->with('success', __('messages.educationSuccess'));
     }
 
@@ -102,7 +102,7 @@ class SliderController extends Controller
     {
         $slider->delete();
 
-        return to_route('dashboard.sliders.index')
+        return to_route((app()->getLocale() . '.dashboard.sliders.index'))
             ->with('success', __('messages.educationSuccess'));
     }
 }
