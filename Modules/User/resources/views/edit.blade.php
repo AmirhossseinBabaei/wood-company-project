@@ -33,7 +33,7 @@
                 <div class="alert alert-danger">{{ session('success') }}</div>
             @endif
             <form method="POST"
-                  action="{{ route('dashboard.users.update',$user) }}">
+                  action="{{ route((app()->getLocale() . '.dashboard.users.update'), $user) }}">
 
 
                 @csrf
