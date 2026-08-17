@@ -1,4 +1,3 @@
-```blade
 @extends('components.layouts.dashboard')
 
 @section('title', __('Slider::words.sliders'))
@@ -14,7 +13,7 @@
             </h4>
 
             <a
-                href="{{ route('dashboard.sliders.create') }}"
+                href="{{ route((app()->getLocale() . '.dashboard.sliders.create')) }}"
                 class="btn btn-primary"
             >
                 {{ __('Slider::words.create_slider') }}
@@ -94,21 +93,21 @@
                                 <td>
 
                                     <a
-                                        href="{{ route('dashboard.sliders.show', $slider) }}"
+                                        href="{{ route((app()->getLocale() . '.dashboard.sliders.show'), $slider) }}"
                                         class="btn btn-sm btn-info"
                                     >
                                         {{ __('Slider::words.view') }}
                                     </a>
 
                                     <a
-                                        href="{{ route('dashboard.sliders.edit', $slider) }}"
+                                        href="{{ route((app()->getLocale() . '.dashboard.sliders.edit'), $slider) }}"
                                         class="btn btn-sm btn-warning"
                                     >
                                         {{ __('Slider::words.edit') }}
                                     </a>
 
                                     <form
-                                        action="{{ route('dashboard.sliders.destroy', $slider) }}"
+                                        action="{{ route((app()->getLocale() . '.dashboard.sliders.destroy'), $slider) }}"
                                         method="POST"
                                         class="d-inline"
                                     >
@@ -155,4 +154,3 @@
     </div>
 
 @endsection
-```
