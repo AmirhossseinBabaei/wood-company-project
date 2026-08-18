@@ -9,6 +9,4 @@ class ProjectProperty extends Model
 {
     protected $table = 'project_property';
     use HasFactory;
-
-    protected $fillable = [];
 }
