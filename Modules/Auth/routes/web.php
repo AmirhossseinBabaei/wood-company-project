@@ -18,29 +18,11 @@ Route::prefix('auth')
     });
 
 //Persian lang for dashboard routes
-Route::prefix('fa')
-    ->middleware([
-        \App\Http\Middleware\FaLocale::class,
-        'auth',
-    ])->name('fa.')
-    ->group(function () {
-
-        Route::get('dashboard', [
-            \Modules\Auth\Http\Controllers\DashboardController::class,
-            'dashboard'
-        ])->name('dashboard');
-    });
+Route::prefix('fa')->middleware([\App\Http\Middleware\FaLocale::class, 'auth',])->name('fa.')->group(function () {
+    Route::get('dashboard', [\Modules\Auth\Http\Controllers\DashboardController::class, 'dashboard'])->name('dashboard');
+});
 
 //English lang for dashboard routes
-Route::prefix('en')
-    ->middleware([
-        \App\Http\Middleware\EnLocale::class,
-        'auth',
-    ])->name('en.')
-    ->group(function () {
-
-        Route::get('dashboard', [
-            \Modules\Auth\Http\Controllers\DashboardController::class,
-            'dashboard'
-        ])->name('dashboard');
-    });
+Route::prefix('en')->middleware([\App\Http\Middleware\EnLocale::class, 'auth',])->name('en.')->group(function () {
+    Route::get('dashboard', [\Modules\Auth\Http\Controllers\DashboardController::class, 'dashboard'])->name('dashboard');
+});

@@ -3,14 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use Modules\User\Http\Controllers\UserController;
 
-Route::middleware(\App\Http\Middleware\FaLocale::class)->prefix('fa')->name('fa.')->group(function (){
-    Route::middleware('auth')->name('dashboard.')->prefix('dashboard')->group(function () {
-        Route::resource('users', UserController::class)->names('users');
-    });
+//Persian lang for management users
+Route::middleware(\App\Http\Middleware\FaLocale::class)->prefix('fa')->name('fa.')->group(function () {
+    Route::middleware('auth')->resource('dashboard/users', UserController::class)->names('dashboard.users');
 });
 
-Route::middleware(\App\Http\Middleware\EnLocale::class)->prefix('en')->name('en.')->group(function (){
-    Route::middleware('auth')->name('dashboard.')->prefix('dashboard')->group(function () {
-        Route::resource('users', UserController::class)->names('users');
-    });
+//English lang for management users
+Route::middleware(\App\Http\Middleware\EnLocale::class)->prefix('en')->name('en.')->group(function () {
+    Route::middleware('auth')->resource('dashboard/users', UserController::class)->names('dashboard.users');
 });

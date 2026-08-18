@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Middleware\EnLocale;
+use App\Http\Middleware\FaLocale;
 use Illuminate\Support\Facades\Route;
 use Modules\Home\Http\Controllers\HomeController;
-use App\Http\Middleware\FaLocale;
-use App\Http\Middleware\EnLocale;
 
 Route::redirect('/', '/fa');
 
-Route::middleware(FaLocale::class)->get('/fa', [HomeController::class, 'index'])->name('home.fa');
-Route::middleware(EnLocale::class)->get('/en', [HomeController::class, 'index'])->name('home.en');
+//Home page fa lang
+Route::middleware(FaLocale::class)->get('fa', [HomeController::class, 'index'])->name('home.fa');
+
+//Home page en lang
+Route::middleware(EnLocale::class)->get('en', [HomeController::class, 'index'])->name('home.en');
