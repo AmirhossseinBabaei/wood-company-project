@@ -1,8 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Slider\Models;
 
-use Hekmatinasser\Verta\Verta;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
