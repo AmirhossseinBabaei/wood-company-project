@@ -11,19 +11,30 @@ use Modules\ContactUs\app\Models\ContactMessage;
 
 class ContactController extends Controller
 {
+    /**
+     * @return View
+     */
     public function index(): View
     {
-        $contacts = ContactMessage::orderBy('id', 'desc')
+        $contacts = ContactMessage::latest()
             ->paginate(10);
 
-        return view('contact-messages::admin.index', compact('contacts'));
+        return view('contact-messages::admin.contact-messages.index', compact('contacts'));
     }
 
+    /**
+     * @param ContactMessage $contactMessage
+     * @return View
+     */
     public function show(ContactMessage $contactMessage): View
     {
-        return view('contact-messages::admin.show', compact('contactMessage'));
+        return view('contact-messages::admin.contact-messages.show', compact('contactMessage'));
     }
 
+    /**
+     * @param ContactMessage $contactMessage
+     * @return RedirectResponse
+     */
     public function read(ContactMessage $contactMessage): RedirectResponse
     {
         $contactMessage->update(['is_read' => 'true']);
