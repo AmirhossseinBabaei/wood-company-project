@@ -125,5 +125,8 @@ return [
     'previous' => 'Previous',
     'lang_fa' => 'Persian',
     'lang_en' => 'English',
-    'select_language' => 'Select Language'
+    'select_language' => 'Select Language',
+    'team_members' => 'Team Members',
+    'All Team' => 'All Team Members',
+    'Create Team' => 'Create Member'
 ];

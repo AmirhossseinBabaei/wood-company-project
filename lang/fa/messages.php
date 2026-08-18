@@ -210,5 +210,8 @@ return [
     'previous' => 'قبلی',
     'lang_fa' => 'فارسی',
     'lang_en' => 'انگلیسی',
-    'select_language' => 'انتخاب زبان'
+    'select_language' => 'انتخاب زبان',
+    'team_members' => 'تیم ما',
+    'All Team' => 'همه اعضا تیم',
+    'Create Team' => 'ایجاد عضو'
 ];
