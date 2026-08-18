@@ -82,8 +82,11 @@
         .language-dropdown .dropdown-item:hover {
             background-color: #f5f5f5;
         }
+        .container-fluid{
+            position:absolute !important;
+            top:0 !important;
+        }
     </style>
-    @vite('resources/assets/css/index.css')
     @vite('resources/js/app.js')
     @yield('styles')
 </head>
@@ -125,22 +128,11 @@
                                     style="background: transparent; color: inherit;">
 
                                 @if(app()->getLocale() == 'fa')
-                                    <img src="https://flagcdn.com/w40/ir.png"
-                                         width="32"
-                                         height="21"
-                                         class="rounded-1"
-                                         alt="FA">
-                                    <span>FA</span>
+                                    <span class="text-white">FA</span>
                                 @else
-                                    <img src="https://flagcdn.com/w40/gb.png"
-                                         width="32"
-                                         height="21"
-                                         class="rounded-1"
-                                         alt="EN">
-                                    <span>EN</span>
+                                    <span class="text-white">EN</span>
                                 @endif
 
-                                <span id="languageArrow">⌄</span>
 
                             </button>
 
@@ -210,7 +202,6 @@
                 </div>
 
             </div>
-
             <!-- Hero -->
             <div class="col-6 web-background h-100 text-white d-flex align-items-center flex-column justify-content-center hero">
 
@@ -318,7 +309,6 @@
 
                     </div>
 
-
                     <div class="footer-bottom">
                         <p>
                             {{ __('messages.copyright') }}
@@ -373,7 +363,6 @@
 
     });
 </script>
-<script src="script.js" type="module"></script>
 <script>
 
     const counters = document.querySelectorAll('.number');
@@ -487,9 +476,6 @@
 
     });
 </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
 
 @yield('scripts')
 </body>

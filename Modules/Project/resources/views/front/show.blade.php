@@ -1043,7 +1043,7 @@
 
                                         <div class="project-property-value">
 
-                                            {{ $projectProperty->{app()->getLocale() . '_value'} }}
+                                            {{ $property->projectProperty($project->id)->{app()->getLocale() . "_value"} ?? '' }}
 
                                         </div>
 
