@@ -18,7 +18,7 @@ class ContactUsTest extends TestCase
         ContactMessage::factory()->count(5)->create();
 
         $this->actingAs($user)
-            ->get(route('dashboard.contact-us.index'))
+            ->get(route((app()->getLocale() . '.dashboard.contact-us.index')))
             ->assertOk()
             ->assertViewHas('contacts');
     }
