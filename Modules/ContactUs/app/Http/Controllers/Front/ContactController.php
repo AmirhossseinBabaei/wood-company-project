@@ -18,7 +18,7 @@ class ContactController extends Controller
      */
     public function index(): View
     {
-        return view('contactus::front.contact-us');
+        return view('contact-messages::front.contact-us');
     }
 
     /**
