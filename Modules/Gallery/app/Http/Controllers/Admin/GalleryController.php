@@ -14,19 +14,18 @@ use Modules\Gallery\Http\Requests\GalleryRequest;
 class GalleryController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * @return View
      */
     public function index(): View
     {
-        $galleries = Gallery::orderBy('sort_order')
-            ->orderByDesc('id')
+        $galleries = Gallery::latest()
             ->paginate(10);
 
         return view('gallery::admin.index', compact('galleries'));
     }
 
     /**
-     * Show the form for creating a new resource.
+     * @return View
      */
     public function create(): View
     {
@@ -34,12 +33,14 @@ class GalleryController extends Controller
     }
 
     /**
-     * Store a newly created resource.
+     * @param GalleryRequest $request
+     * @return RedirectResponse
      */
     public function store(GalleryRequest $request): RedirectResponse
     {
         $data = $request->validated();
 
+        //Checking for the presence of an image in the request and if exists save in storage/gallery
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')
                 ->store('gallery', 'public');
@@ -52,7 +53,8 @@ class GalleryController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * @param Gallery $gallery
+     * @return View
      */
     public function show(Gallery $gallery): View
     {
@@ -60,7 +62,8 @@ class GalleryController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * @param Gallery $gallery
+     * @return View
      */
     public function edit(Gallery $gallery): View
     {
@@ -68,14 +71,18 @@ class GalleryController extends Controller
     }
 
     /**
-     * Update the specified resource.
+     * @param GalleryRequest $request
+     * @param Gallery $gallery
+     * @return RedirectResponse
      */
     public function update(GalleryRequest $request, Gallery $gallery): RedirectResponse
     {
         $data = $request->validated();
 
+        //Checking for the presence of an image in the request and if exists save in storage/gallery
         if ($request->hasFile('image')) {
 
+            //Checking exists file in the disk and delete it
             if ($gallery->image && Storage::disk('public')->exists($gallery->image)) {
                 Storage::disk('public')->delete($gallery->image);
             }
@@ -91,10 +98,12 @@ class GalleryController extends Controller
     }
 
     /**
-     * Remove the specified resource.
+     * @param Gallery $gallery
+     * @return RedirectResponse
      */
     public function destroy(Gallery $gallery): RedirectResponse
     {
+        //Checking exists file in the disk and delete it
         if ($gallery->image && Storage::disk('public')->exists($gallery->image)) {
             Storage::disk('public')->delete($gallery->image);
         }

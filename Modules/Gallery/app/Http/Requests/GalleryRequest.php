@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Gallery\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
@@ -17,7 +19,7 @@ class GalleryRequest extends FormRequest
             'fa_description' => 'required',
             'en_description' => 'required',
             'sort_order' => ['required', 'integer'],
-            'image' => 'max:1024',
+            'image' => 'max:50012',
             'status' => 'in:active,inactive'
         ];
     }

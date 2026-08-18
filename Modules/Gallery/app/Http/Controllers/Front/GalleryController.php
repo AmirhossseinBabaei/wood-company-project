@@ -8,8 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\View\View;
 use Modules\Gallery\app\Models\Gallery;
 
-class
-GalleryController extends Controller
+class GalleryController extends Controller
 {
     /**
      * @return View
@@ -17,7 +16,7 @@ GalleryController extends Controller
     public function index(): View
     {
         $galleries = Gallery::activeGalleries()
-            ->latest('sort_order')
+            ->orderBy('sort_order')
             ->paginate(10);
 
         return view('gallery::front.gallery', compact('galleries'));
