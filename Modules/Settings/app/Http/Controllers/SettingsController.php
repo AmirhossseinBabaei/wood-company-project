@@ -12,10 +12,10 @@ use Modules\Settings\Http\Requests\UpdateSettingsRequest;
 
 class SettingsController extends Controller
 {
+
     /**
      * @return View
      */
-
     public function index(): View
     {
         $setting = Setting::first();
@@ -23,12 +23,10 @@ class SettingsController extends Controller
         return view('settings::index', compact('setting'));
     }
 
-
     /**
      * @param UpdateSettingsRequest $request
      * @return RedirectResponse
      */
-
     public function updateOrCreate(UpdateSettingsRequest $request): RedirectResponse
     {
         $data = $request->validated();
