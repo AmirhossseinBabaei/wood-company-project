@@ -6,7 +6,8 @@ namespace Modules\Settings\Tests\Feature;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Modules\Settings\app\Http\Models\Setting;
+
+use Modules\Settings\app\Models\Setting;
 use Tests\TestCase;
 
 class SettingsTest extends TestCase
@@ -38,6 +39,7 @@ class SettingsTest extends TestCase
     {
         $fakeSetting = Setting::factory()->toArray();
         $response = $this->post('dashboard/settings/update', $fakeSetting);
+
         $this->assertDatabaseHas(['fa_title'  => $fakeSetting->fa_title]);
 
         $response->assertSessionHas('success', __('Settings::words.success_update'));
