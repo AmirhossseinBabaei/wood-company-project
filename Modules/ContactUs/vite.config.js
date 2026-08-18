@@ -7,14 +7,14 @@ import laravel from 'laravel-vite-plugin';
 
 export default defineConfig({
     build: {
-        outDir: '../../public/build-contactus',
+        outDir: '../../public/build-contact-messages',
         emptyOutDir: true,
         manifest: true,
     },
     plugins: [
         laravel({
             publicDirectory: '../../public',
-            buildDirectory: 'build-contactus',
+            buildDirectory: 'build-contact-messages',
             input: [
                 __dirname + '/resources/assets/sass/app.scss',
                 __dirname + '/resources/assets/js/app.js'

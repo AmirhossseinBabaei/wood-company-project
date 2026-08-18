@@ -27,7 +27,7 @@ class ViewServiceProvider extends ServiceProvider
     {
         $data = $service->getMasterViewData();
 
-        View::composer('contactus::front.*', function ($view) use ($data) {
+        View::composer('contact-messages::front.*', function ($view) use ($data) {
             $view->with('data', $data);
         });
     }
