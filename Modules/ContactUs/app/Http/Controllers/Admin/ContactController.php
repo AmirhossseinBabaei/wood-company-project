@@ -16,12 +16,12 @@ class ContactController extends Controller
         $contacts = ContactMessage::orderBy('id', 'desc')
             ->paginate(10);
 
-        return view('contactus::admin.index', compact('contacts'));
+        return view('contact-messages::admin.index', compact('contacts'));
     }
 
     public function show(ContactMessage $contactMessage): View
     {
-        return view('contactus::admin.show', compact('contactMessage'));
+        return view('contact-messages::admin.show', compact('contactMessage'));
     }
 
     public function read(ContactMessage $contactMessage): RedirectResponse
