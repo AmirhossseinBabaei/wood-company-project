@@ -26,6 +26,6 @@ class AboutUsController extends Controller
             'usersCount' => User::count()
         ];
 
-        return view('contactus::front.about-us', compact('lastFourProjects', 'counters'));
+        return view('contact-messages::front.about-us', compact('lastFourProjects', 'counters'));
     }
 }
