@@ -6,9 +6,8 @@ namespace Modules\Slider\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
-use Modules\Project\app\Http\Services\Inquiry\Drivers\ImageUploaderService;
-use Modules\Project\app\Http\Services\Inquiry\FileUploaderInquiry;
 use Modules\Slider\Http\Requests\SliderRequest;
 use Modules\Slider\Models\Slider;
 
@@ -41,10 +40,9 @@ class SliderController extends Controller
     {
         $data = $request->validated();
 
+        //Checking for the presence of an image in the request and if exists save in storage/sliders
         if ($request->hasFile('image')) {
-            $upload = new FileUploaderInquiry(new ImageUploaderService());
-            $imgName = $upload->upload($request->image, 'sliders', 'public');
-            $data['image'] = $imgName;
+            $data['image'] = $request->file('image')->store('public', 'sliders');
         }
 
         Slider::create($data);
@@ -71,12 +69,9 @@ class SliderController extends Controller
     {
         $data = $request->validated();
 
+        //Checking for the presence of an image in the request and if exists save in storage/sliders
         if ($request->hasFile('image')) {
-            $upload = new FileUploaderInquiry(new ImageUploaderService());
-            $imgName = $upload->upload($request->image, 'sliders', 'public');
-            $data['image'] = $imgName;
-        } else {
-            $data['image'] = $slider->image;
+            $data['image'] = $request->file('image')->store('public', 'sliders');
         }
 
         $slider->update($data);
@@ -100,6 +95,12 @@ class SliderController extends Controller
      */
     public function destroy(Slider $slider): RedirectResponse
     {
+        //Checking for the presence of an image in the request and if exists delete from storage/sliders
+        if ($slider->image) {
+            Storage::disk('public')
+                ->delete($slider->image);
+        }
+
         $slider->delete();
 
         return to_route((app()->getLocale() . '.dashboard.sliders.index'))
