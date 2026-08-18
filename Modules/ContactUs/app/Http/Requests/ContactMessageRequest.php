@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\ContactUs\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
@@ -24,6 +26,6 @@ class ContactMessageRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
+        return auth()->check();
     }
 }
