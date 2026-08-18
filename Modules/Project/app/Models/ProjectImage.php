@@ -17,6 +17,9 @@ class ProjectImage extends Model
         'img_src',
     ];
 
+    /**
+     * @return BelongsTo
+     */
     public function project(): BelongsTo
     {
         return $this->belongsTo(Project::class);
