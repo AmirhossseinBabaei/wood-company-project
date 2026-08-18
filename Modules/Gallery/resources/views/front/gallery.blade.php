@@ -3,19 +3,12 @@
 @section('title', __('Gallery::words.gallery'))
 
 @section('styles')
-
     <link rel="stylesheet" href="{{ asset('assets/css/gallery.css') }}">
-
     <style>
 
         /* =========================================================
            PREMIUM GALLERY
-        ========================================================== */
-        .premium-gallery-item {
-            width: 500px !important;
-            height: 500px !important;
-
-        }
+        ========================================================= */
 
         .premium-gallery {
             --black: #101828;
@@ -29,22 +22,23 @@
 
             padding: 80px 0 120px;
 
-            background: radial-gradient(
-                circle at 8% 0%,
-                rgba(16, 24, 40, .045),
-                transparent 28%
-            ),
-            radial-gradient(
-                circle at 95% 25%,
-                rgba(16, 24, 40, .035),
-                transparent 25%
-            );
+            background:
+                radial-gradient(
+                    circle at 8% 0%,
+                    rgba(16, 24, 40, .045),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 95% 25%,
+                    rgba(16, 24, 40, .035),
+                    transparent 25%
+                );
         }
 
 
         /* =========================================================
            HEADER
-        ========================================================== */
+        ========================================================= */
 
         .premium-gallery-header {
             width: min(1100px, 92%);
@@ -124,7 +118,7 @@
 
         /* =========================================================
            GALLERY CONTAINER
-        ========================================================== */
+        ========================================================= */
 
         .premium-gallery-container {
             width: min(1100px, 92%);
@@ -134,16 +128,20 @@
 
 
         /* =========================================================
-           GRID
-        ========================================================== */
+           GALLERY LAYOUT
+           FLEX - NO GRID
+        ========================================================= */
 
         .premium-gallery-grid {
-            display: grid;
+            width: 100%;
 
-            grid-template-columns:
-                repeat(12, minmax(0, 1fr));
+            display: flex;
 
-            grid-auto-rows: 90px;
+            flex-wrap: wrap;
+
+            align-items: flex-start;
+
+            justify-content: flex-start;
 
             gap: 20px;
         }
@@ -151,10 +149,15 @@
 
         /* =========================================================
            GALLERY ITEM
-        ========================================================== */
+        ========================================================= */
 
         .premium-gallery-item {
             position: relative;
+
+            width: 260px !important;
+            height: 260px !important;
+
+            flex: 0 0 260px;
 
             min-width: 0;
 
@@ -170,77 +173,25 @@
 
             isolation: isolate;
 
-            animation: galleryItemIn .7s cubic-bezier(.2, .8, .2, 1) both;
+            animation:
+                galleryItemIn .7s cubic-bezier(.2, .8, .2, 1) both;
 
-            transition: transform .45s cubic-bezier(.2, .8, .2, 1),
-            box-shadow .45s ease;
+            transition:
+                transform .45s cubic-bezier(.2, .8, .2, 1),
+                box-shadow .45s ease;
         }
 
         .premium-gallery-item:hover {
             transform: translateY(-5px);
 
-            box-shadow: 0 18px 45px rgba(16, 24, 40, .11);
-        }
-
-
-        /* =========================================================
-           ITEM SIZES
-        ========================================================== */
-
-        .premium-gallery-item:nth-child(1) {
-            grid-column: span 7;
-            grid-row: span 5;
-        }
-
-        .premium-gallery-item:nth-child(2) {
-            grid-column: span 5;
-            grid-row: span 3;
-        }
-
-        .premium-gallery-item:nth-child(3) {
-            grid-column: span 5;
-            grid-row: span 2;
-        }
-
-        .premium-gallery-item:nth-child(4) {
-            grid-column: span 4;
-            grid-row: span 4;
-        }
-
-        .premium-gallery-item:nth-child(5) {
-            grid-column: span 4;
-            grid-row: span 4;
-        }
-
-        .premium-gallery-item:nth-child(6) {
-            grid-column: span 4;
-            grid-row: span 4;
-        }
-
-        .premium-gallery-item:nth-child(7) {
-            grid-column: span 5;
-            grid-row: span 4;
-        }
-
-        .premium-gallery-item:nth-child(8) {
-            grid-column: span 7;
-            grid-row: span 4;
-        }
-
-        .premium-gallery-item:nth-child(9) {
-            grid-column: span 4;
-            grid-row: span 4;
-        }
-
-        .premium-gallery-item:nth-child(10) {
-            grid-column: span 8;
-            grid-row: span 4;
+            box-shadow:
+                0 18px 45px rgba(16, 24, 40, .11);
         }
 
 
         /* =========================================================
            IMAGE
-        ========================================================== */
+        ========================================================= */
 
         .premium-gallery-image {
             width: 100%;
@@ -252,8 +203,9 @@
 
             transform: scale(1);
 
-            transition: transform 1s cubic-bezier(.2, .8, .2, 1),
-            filter .6s ease;
+            transition:
+                transform 1s cubic-bezier(.2, .8, .2, 1),
+                filter .6s ease;
         }
 
         .premium-gallery-item:hover
@@ -265,8 +217,8 @@
 
 
         /* =========================================================
-           GRADIENT
-        ========================================================== */
+           GRADIENT OVERLAY
+        ========================================================= */
 
         .premium-gallery-overlay {
             position: absolute;
@@ -275,12 +227,13 @@
 
             z-index: 1;
 
-            background: linear-gradient(
-                to top,
-                rgba(0, 0, 0, .72) 0%,
-                rgba(0, 0, 0, .20) 42%,
-                transparent 70%
-            );
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(0, 0, 0, .72) 0%,
+                    rgba(0, 0, 0, .20) 42%,
+                    transparent 70%
+                );
 
             opacity: .8;
 
@@ -295,7 +248,7 @@
 
         /* =========================================================
            CONTENT
-        ========================================================== */
+        ========================================================= */
 
         .premium-gallery-content {
             position: absolute;
@@ -312,7 +265,8 @@
 
             transform: translateY(8px);
 
-            transition: transform .4s cubic-bezier(.2, .8, .2, 1);
+            transition:
+                transform .4s cubic-bezier(.2, .8, .2, 1);
         }
 
         .premium-gallery-item:hover
@@ -371,7 +325,7 @@
 
         /* =========================================================
            VIEW ICON
-        ========================================================== */
+        ========================================================= */
 
         .premium-gallery-view {
             position: absolute;
@@ -401,188 +355,31 @@
 
             opacity: 0;
 
-            transform: scale(.75) rotate(-15deg);
+            transform:
+                scale(.75)
+                rotate(-15deg);
 
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
 
-            transition: opacity .3s ease,
-            transform .4s cubic-bezier(.2, .8, .2, 1);
+            transition:
+                opacity .3s ease,
+                transform .4s cubic-bezier(.2, .8, .2, 1);
         }
 
         .premium-gallery-item:hover
         .premium-gallery-view {
             opacity: 1;
 
-            transform: scale(1) rotate(0);
-        }
-
-
-        /* =========================================================
-           LIGHTBOX
-        ========================================================== */
-
-        .gallery-lightbox {
-            position: fixed;
-
-            inset: 0;
-
-            z-index: 999999;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            padding: 30px;
-
-            background: rgba(8, 12, 18, .9);
-
-            opacity: 0;
-
-            visibility: hidden;
-
-            transition: opacity .35s ease,
-            visibility .35s ease;
-
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-        }
-
-        .gallery-lightbox.active {
-            opacity: 1;
-
-            visibility: visible;
-        }
-
-
-        /* =========================================================
-           LIGHTBOX CONTENT
-        ========================================================== */
-
-        .gallery-lightbox-content {
-            position: relative;
-
-            max-width: 1200px;
-
-            max-height: 90vh;
-
-            display: flex;
-
-            flex-direction: column;
-
-            align-items: center;
-
-            transform: scale(.92);
-
-            transition: transform .45s cubic-bezier(.2, .8, .2, 1);
-        }
-
-        .gallery-lightbox.active
-        .gallery-lightbox-content {
-            transform: scale(1);
-        }
-
-        .gallery-lightbox-image {
-            max-width: min(1100px, 90vw);
-
-            max-height: 78vh;
-
-            display: block;
-
-            object-fit: contain;
-
-            border-radius: 16px;
-
-            box-shadow: 0 35px 110px rgba(0, 0, 0, .45);
-        }
-
-
-        /* =========================================================
-           LIGHTBOX TITLE
-        ========================================================== */
-
-        .gallery-lightbox-caption {
-            margin-top: 18px;
-
-            color: rgba(255, 255, 255, .85);
-
-            font-size: 14px;
-
-            font-weight: 600;
-
-            text-align: center;
-        }
-
-
-        /* =========================================================
-           CLOSE
-        ========================================================== */
-
-        .gallery-lightbox-close {
-            position: fixed;
-
-            top: 25px;
-            right: 25px;
-
-            z-index: 10;
-
-            width: 48px;
-            height: 48px;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            border: 1px solid rgba(255, 255, 255, .18);
-
-            border-radius: 50%;
-
-            background: rgba(0, 0, 0, .4);
-
-            color: #fff;
-
-            font-size: 26px;
-
-            line-height: 1;
-
-            cursor: pointer;
-
-            transition: background .25s ease,
-            transform .3s ease;
-        }
-
-        .gallery-lightbox-close:hover {
-            background: rgba(0, 0, 0, .75);
-
-            transform: rotate(90deg);
-        }
-
-
-        /* =========================================================
-           COUNTER
-        ========================================================== */
-
-        .gallery-lightbox-counter {
-            position: fixed;
-
-            top: 35px;
-            left: 35px;
-
-            color: rgba(255, 255, 255, .65);
-
-            font-size: 11px;
-
-            font-weight: 800;
-
-            letter-spacing: .1em;
+            transform:
+                scale(1)
+                rotate(0);
         }
 
 
         /* =========================================================
            EMPTY
-        ========================================================== */
+        ========================================================= */
 
         .gallery-empty {
             padding: 100px 30px;
@@ -615,28 +412,453 @@
 
         /* =========================================================
            ANIMATION
-        ========================================================== */
+        ========================================================= */
 
         @keyframes galleryItemIn {
 
             from {
                 opacity: 0;
 
-                transform: translateY(25px) scale(.98);
+                transform:
+                    translateY(25px)
+                    scale(.98);
             }
 
             to {
                 opacity: 1;
 
-                transform: translateY(0) scale(1);
+                transform:
+                    translateY(0)
+                    scale(1);
             }
 
         }
 
 
         /* =========================================================
+           LIGHTBOX
+        ========================================================= */
+
+        .gallery-lightbox {
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 999999;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 30px;
+
+            background: rgba(8, 12, 18, .9);
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transition:
+                opacity .35s ease,
+                visibility .35s ease;
+
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+
+        .gallery-lightbox.active {
+            opacity: 1;
+
+            visibility: visible;
+        }
+
+
+        /* =========================================================
+           LIGHTBOX CONTENT
+        ========================================================= */
+
+        .gallery-lightbox-content {
+            position: relative;
+
+            max-width: 1200px;
+
+            max-height: 90vh;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            transform: scale(.92);
+
+            transition:
+                transform .45s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        .gallery-lightbox.active
+        .gallery-lightbox-content {
+            transform: scale(1);
+        }
+
+        .gallery-lightbox-image {
+            max-width: min(1100px, 90vw);
+
+            max-height: 78vh;
+
+            display: block;
+
+            object-fit: contain;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 35px 110px rgba(0, 0, 0, .45);
+        }
+
+
+        /* =========================================================
+           LIGHTBOX TITLE
+        ========================================================= */
+
+        .gallery-lightbox-caption {
+            margin-top: 18px;
+
+            color: rgba(255, 255, 255, .85);
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            text-align: center;
+        }
+
+
+        /* =========================================================
+           CLOSE
+        ========================================================= */
+
+        .gallery-lightbox-close {
+            position: fixed;
+
+            top: 25px;
+            right: 25px;
+
+            z-index: 10;
+
+            width: 48px;
+            height: 48px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid rgba(255, 255, 255, .18);
+
+            border-radius: 50%;
+
+            background: rgba(0, 0, 0, .4);
+
+            color: #fff;
+
+            font-size: 26px;
+
+            line-height: 1;
+
+            cursor: pointer;
+
+            transition:
+                background .25s ease,
+                transform .3s ease;
+        }
+
+        .gallery-lightbox-close:hover {
+            background: rgba(0, 0, 0, .75);
+
+            transform: rotate(90deg);
+        }
+
+
+        /* =========================================================
+           COUNTER
+        ========================================================= */
+
+        .gallery-lightbox-counter {
+            position: fixed;
+
+            top: 35px;
+            left: 35px;
+
+            color: rgba(255, 255, 255, .65);
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: .1em;
+        }
+
+
+        /* =========================================================
+           PAGINATION
+        ========================================================= */
+
+        .app-pagination {
+            --app-pagination-size: 42px;
+            --app-pagination-radius: 12px;
+            --app-pagination-color: #1d2939;
+            --app-pagination-muted: #98a2b3;
+            --app-pagination-border: #eaecf0;
+            --app-pagination-background: #ffffff;
+            --app-pagination-active: #101828;
+
+            width: 100%;
+
+            margin: 35px 0 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 7px;
+
+            box-sizing: border-box;
+        }
+
+        .app-pagination *,
+        .app-pagination *::before,
+        .app-pagination *::after {
+            box-sizing: border-box;
+        }
+
+        .app-pagination__pages {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 6px;
+        }
+
+        .app-pagination__page,
+        .app-pagination__arrow {
+            width: var(--app-pagination-size);
+            height: var(--app-pagination-size);
+
+            flex: 0 0 var(--app-pagination-size);
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 0;
+            margin: 0;
+
+            border: 1px solid var(--app-pagination-border);
+
+            border-radius: var(--app-pagination-radius);
+
+            background: var(--app-pagination-background);
+
+            color: var(--app-pagination-color);
+
+            font-family: inherit;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            line-height: 1;
+
+            text-decoration: none;
+
+            cursor: pointer;
+
+            transition:
+                background-color .2s ease,
+                color .2s ease,
+                border-color .2s ease,
+                transform .2s ease,
+                box-shadow .2s ease;
+        }
+
+        a.app-pagination__page:hover,
+        a.app-pagination__arrow:hover {
+            color: var(--app-pagination-active);
+
+            border-color: #d0d5dd;
+
+            background: #f9fafb;
+
+            text-decoration: none;
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 5px 15px rgba(16, 24, 40, .07);
+        }
+
+        .app-pagination__page--active {
+            color: #ffffff;
+
+            background: var(--app-pagination-active);
+
+            border-color: var(--app-pagination-active);
+
+            box-shadow:
+                0 5px 15px rgba(16, 24, 40, .15);
+        }
+
+        .app-pagination__dots {
+            width: 30px;
+            height: var(--app-pagination-size);
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            color: var(--app-pagination-muted);
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            user-select: none;
+        }
+
+        .app-pagination__arrow svg {
+            width: 17px;
+            height: 17px;
+
+            fill: none;
+
+            stroke: currentColor;
+
+            stroke-width: 2;
+
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .app-pagination__arrow--disabled {
+            color: #d0d5dd;
+
+            background: #f9fafb;
+
+            cursor: default;
+
+            pointer-events: none;
+        }
+
+        .app-pagination__page:focus-visible,
+        .app-pagination__arrow:focus-visible {
+            outline: 3px solid rgba(16, 24, 40, .12);
+
+            outline-offset: 2px;
+        }
+
+
+        /* =========================================================
+           LARAVEL PAGINATION
+        ========================================================= */
+
+        nav[aria-label="Pagination Navigation"] {
+            margin-top: 45px;
+        }
+
+        nav[aria-label="Pagination Navigation"] > div {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 6px;
+        }
+
+        nav[aria-label="Pagination Navigation"] a,
+        nav[aria-label="Pagination Navigation"] span {
+            min-width: 42px;
+            height: 42px;
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 0 13px;
+
+            border: 1px solid #eaecf0;
+
+            border-radius: 12px;
+
+            background: #fff;
+
+            color: #344054;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            line-height: 1;
+
+            text-decoration: none;
+
+            transition: all .25s ease;
+        }
+
+        nav[aria-label="Pagination Navigation"] a:hover {
+            color: #101828;
+
+            background: #f9fafb;
+
+            border-color: #d0d5dd;
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 6px 18px rgba(16, 24, 40, .07);
+        }
+
+        nav[aria-label="Pagination Navigation"]
+        span[aria-current="page"] {
+            background: #101828;
+
+            border-color: #101828;
+
+            color: #fff;
+
+            box-shadow:
+                0 6px 18px rgba(16, 24, 40, .15);
+        }
+
+        nav[aria-label="Pagination Navigation"]
+        span[aria-disabled="true"] {
+            color: #d0d5dd;
+
+            background: #f9fafb;
+
+            border-color: #f2f4f7;
+
+            cursor: not-allowed;
+        }
+
+        nav[aria-label="Pagination Navigation"] svg {
+            width: 16px;
+            height: 16px;
+        }
+
+
+        /* =========================================================
            TABLET
-        ========================================================== */
+        ========================================================= */
 
         @media (max-width: 900px) {
 
@@ -661,40 +883,22 @@
             }
 
             .premium-gallery-grid {
-                grid-template-columns:
-                    repeat(6, minmax(0, 1fr));
-
-                grid-auto-rows: 85px;
+                gap: 18px;
             }
 
-            .premium-gallery-item:nth-child(1) {
-                grid-column: span 6;
-                grid-row: span 5;
+            .premium-gallery-item {
+                width: 220px !important;
+                height: 220px !important;
+
+                flex: 0 0 220px;
             }
 
-            .premium-gallery-item:nth-child(2),
-            .premium-gallery-item:nth-child(3) {
-                grid-column: span 3;
-                grid-row: span 3;
-            }
-
-            .premium-gallery-item:nth-child(4),
-            .premium-gallery-item:nth-child(5),
-            .premium-gallery-item:nth-child(6) {
-                grid-column: span 3;
-                grid-row: span 3;
-            }
-
-            .premium-gallery-item:nth-child(n+7) {
-                grid-column: span 3;
-                grid-row: span 3;
-            }
         }
 
 
         /* =========================================================
            MOBILE
-        ========================================================== */
+        ========================================================= */
 
         @media (max-width: 600px) {
 
@@ -721,43 +925,15 @@
             }
 
             .premium-gallery-grid {
-                display: grid;
-
-                grid-template-columns:
-                    repeat(2, minmax(0, 1fr));
-
-                grid-auto-rows: 145px;
-
                 gap: 12px;
             }
 
-            .premium-gallery-item:nth-child(1) {
-                grid-column: span 2;
-                grid-row: span 3;
-            }
-
-            .premium-gallery-item:nth-child(2) {
-                grid-column: span 1;
-                grid-row: span 2;
-            }
-
-            .premium-gallery-item:nth-child(3) {
-                grid-column: span 1;
-                grid-row: span 2;
-            }
-
-            .premium-gallery-item:nth-child(4),
-            .premium-gallery-item:nth-child(5),
-            .premium-gallery-item:nth-child(6),
-            .premium-gallery-item:nth-child(7),
-            .premium-gallery-item:nth-child(8),
-            .premium-gallery-item:nth-child(9),
-            .premium-gallery-item:nth-child(10) {
-                grid-column: span 1;
-                grid-row: span 2;
-            }
-
             .premium-gallery-item {
+                width: calc(50% - 6px) !important;
+                height: 180px !important;
+
+                flex: 0 0 calc(50% - 6px);
+
                 border-radius: 17px;
             }
 
@@ -817,228 +993,35 @@
                 top: 28px;
                 left: 20px;
             }
-        }
 
-        /* =========================================================
-           REDUCED MOTION
-        ========================================================== */
-
-        @media (prefers-reduced-motion: reduce) {
-
-            .premium-gallery-item,
-            .premium-gallery-image,
-            .premium-gallery-content,
-            .premium-gallery-view,
-            .gallery-lightbox,
-            .gallery-lightbox-content,
-            .gallery-lightbox-image,
-            .gallery-lightbox-close {
-                animation: none !important;
-
-                transition: none !important;
+            nav[aria-label="Pagination Navigation"] {
+                margin-top: 30px;
             }
-        }
 
-        /* =========================================================
-                  APP PAGINATION
-                  Completely isolated
-               ========================================================= */
+            nav[aria-label="Pagination Navigation"] > div {
+                gap: 4px;
+            }
 
-        .app-pagination {
-            --app-pagination-size: 42px;
-            --app-pagination-radius: 12px;
-            --app-pagination-color: #1d2939;
-            --app-pagination-muted: #98a2b3;
-            --app-pagination-border: #eaecf0;
-            --app-pagination-background: #ffffff;
-            --app-pagination-active: #101828;
+            nav[aria-label="Pagination Navigation"] a,
+            nav[aria-label="Pagination Navigation"] span {
+                min-width: 36px;
+                height: 36px;
 
-            width: 100%;
-            margin: 35px 0 0;
+                padding: 0 9px;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+                border-radius: 10px;
 
-            gap: 7px;
+                font-size: 11px;
+            }
 
-            box-sizing: border-box;
-        }
-
-
-        /* ---------------------------------------------------------
-           RESET
-        --------------------------------------------------------- */
-
-        .app-pagination *,
-        .app-pagination *::before,
-        .app-pagination *::after {
-            box-sizing: border-box;
-        }
-
-
-        /* ---------------------------------------------------------
-           PAGES WRAPPER
-        --------------------------------------------------------- */
-
-        .app-pagination__pages {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            gap: 6px;
-        }
-
-
-        /* ---------------------------------------------------------
-           PAGE
-        --------------------------------------------------------- */
-
-        .app-pagination__page,
-        .app-pagination__arrow {
-            width: var(--app-pagination-size);
-            height: var(--app-pagination-size);
-
-            flex: 0 0 var(--app-pagination-size);
-
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            padding: 0;
-            margin: 0;
-
-            border: 1px solid var(--app-pagination-border);
-            border-radius: var(--app-pagination-radius);
-
-            background: var(--app-pagination-background);
-            color: var(--app-pagination-color);
-
-            font-family: inherit;
-            font-size: 13px;
-            font-weight: 700;
-            line-height: 1;
-
-            text-decoration: none;
-
-            cursor: pointer;
-
-            transition: background-color .2s ease,
-            color .2s ease,
-            border-color .2s ease,
-            transform .2s ease,
-            box-shadow .2s ease;
-        }
-
-
-        /* ---------------------------------------------------------
-           PAGE HOVER
-        --------------------------------------------------------- */
-
-        a.app-pagination__page:hover,
-        a.app-pagination__arrow:hover {
-            color: var(--app-pagination-active);
-
-            border-color: #d0d5dd;
-
-            background: #f9fafb;
-
-            text-decoration: none;
-
-            transform: translateY(-2px);
-
-            box-shadow: 0 5px 15px rgba(16, 24, 40, .07);
-        }
-
-
-        /* ---------------------------------------------------------
-           ACTIVE
-        --------------------------------------------------------- */
-
-        .app-pagination__page--active {
-            color: #ffffff;
-
-            background: var(--app-pagination-active);
-
-            border-color: var(--app-pagination-active);
-
-            box-shadow: 0 5px 15px rgba(16, 24, 40, .15);
-        }
-
-
-        /* ---------------------------------------------------------
-           DOTS
-        --------------------------------------------------------- */
-
-        .app-pagination__dots {
-            width: 30px;
-            height: var(--app-pagination-size);
-
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            color: var(--app-pagination-muted);
-
-            font-size: 15px;
-            font-weight: 700;
-
-            user-select: none;
-        }
-
-
-        /* ---------------------------------------------------------
-           ARROW
-        --------------------------------------------------------- */
-
-        .app-pagination__arrow svg {
-            width: 17px;
-            height: 17px;
-
-            fill: none;
-
-            stroke: currentColor;
-            stroke-width: 2;
-
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-
-
-        /* ---------------------------------------------------------
-           DISABLED
-        --------------------------------------------------------- */
-
-        .app-pagination__arrow--disabled {
-            color: #d0d5dd;
-
-            background: #f9fafb;
-
-            cursor: default;
-
-            pointer-events: none;
-        }
-
-
-        /* ---------------------------------------------------------
-           FOCUS
-        --------------------------------------------------------- */
-
-        .app-pagination__page:focus-visible,
-        .app-pagination__arrow:focus-visible {
-            outline: 3px solid rgba(16, 24, 40, .12);
-            outline-offset: 2px;
-        }
-
-
-        /* ---------------------------------------------------------
-           MOBILE
-        --------------------------------------------------------- */
-
-        @media (max-width: 600px) {
+            nav[aria-label="Pagination Navigation"] svg {
+                width: 14px;
+                height: 14px;
+            }
 
             .app-pagination {
                 gap: 4px;
+
                 margin-top: 25px;
             }
 
@@ -1067,14 +1050,22 @@
                 width: 22px;
                 height: 38px;
             }
+
         }
 
 
-        /* ---------------------------------------------------------
+        /* =========================================================
            VERY SMALL MOBILE
-        --------------------------------------------------------- */
+        ========================================================= */
 
         @media (max-width: 380px) {
+
+            .premium-gallery-item {
+                width: 100% !important;
+                height: 240px !important;
+
+                flex: 0 0 100%;
+            }
 
             .app-pagination__page,
             .app-pagination__arrow {
@@ -1096,134 +1087,32 @@
                 width: 18px;
                 height: 34px;
             }
+
         }
+
 
         /* =========================================================
-   LARAVEL PAGINATION - CLEAN STYLE
-========================================================= */
+           REDUCED MOTION
+        ========================================================= */
 
-        nav[aria-label="Pagination Navigation"] {
-            margin-top: 45px;
-        }
+        @media (prefers-reduced-motion: reduce) {
 
-        nav[aria-label="Pagination Navigation"] > div {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-        }
+            .premium-gallery-item,
+            .premium-gallery-image,
+            .premium-gallery-content,
+            .premium-gallery-view,
+            .gallery-lightbox,
+            .gallery-lightbox-content,
+            .gallery-lightbox-image,
+            .gallery-lightbox-close {
+                animation: none !important;
 
-
-        /* Pagination buttons */
-
-        nav[aria-label="Pagination Navigation"] a,
-        nav[aria-label="Pagination Navigation"] span {
-            min-width: 42px;
-            height: 42px;
-
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            padding: 0 13px;
-
-            border: 1px solid #eaecf0;
-            border-radius: 12px;
-
-            background: #fff;
-
-            color: #344054;
-
-            font-size: 13px;
-            font-weight: 700;
-
-            line-height: 1;
-            text-decoration: none;
-
-            transition: all .25s ease;
-        }
-
-
-        /* Hover */
-
-        nav[aria-label="Pagination Navigation"] a:hover {
-            color: #101828;
-
-            background: #f9fafb;
-
-            border-color: #d0d5dd;
-
-            transform: translateY(-2px);
-
-            box-shadow: 0 6px 18px rgba(16, 24, 40, .07);
-        }
-
-
-        /* Active page */
-
-        nav[aria-label="Pagination Navigation"] span[aria-current="page"] {
-            background: #101828;
-
-            border-color: #101828;
-
-            color: #fff;
-
-            box-shadow: 0 6px 18px rgba(16, 24, 40, .15);
-        }
-
-
-        /* Disabled */
-
-        nav[aria-label="Pagination Navigation"] span[aria-disabled="true"] {
-            color: #d0d5dd;
-
-            background: #f9fafb;
-
-            border-color: #f2f4f7;
-
-            cursor: not-allowed;
-        }
-
-
-        /* SVG arrows */
-
-        nav[aria-label="Pagination Navigation"] svg {
-            width: 16px;
-            height: 16px;
-        }
-
-
-        /* Mobile */
-
-        @media (max-width: 600px) {
-
-            nav[aria-label="Pagination Navigation"] {
-                margin-top: 30px;
+                transition: none !important;
             }
 
-            nav[aria-label="Pagination Navigation"] > div {
-                gap: 4px;
-            }
-
-            nav[aria-label="Pagination Navigation"] a,
-            nav[aria-label="Pagination Navigation"] span {
-                min-width: 36px;
-                height: 36px;
-
-                padding: 0 9px;
-
-                border-radius: 10px;
-
-                font-size: 11px;
-            }
-
-            nav[aria-label="Pagination Navigation"] svg {
-                width: 14px;
-                height: 14px;
-            }
         }
+
     </style>
-
 @endsection
 
 
