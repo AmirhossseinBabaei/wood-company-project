@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('team_members', function (Blueprint $table) {
             $table->id();
-            
+
+            $table->string('full_name');
+            $table->enum('status', ['active', 'inactive']);
+
+            $table->string('field');
+            $table->string('image');
+
             $table->timestamps();
         });
     }
