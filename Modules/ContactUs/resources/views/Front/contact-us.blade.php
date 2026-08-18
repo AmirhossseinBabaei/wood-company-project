@@ -1,4 +1,4 @@
-@extends('contactus::components.layouts.master')
+@extends('contact-messages::components.layouts.master')
 
 @section('title', __('ContactUs::words.contact_us'))
 
