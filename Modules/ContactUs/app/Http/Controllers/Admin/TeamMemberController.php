@@ -70,9 +70,11 @@ class TeamMemberController extends Controller
 
         //Checking for the presence of an image in the request and if exists save in storage/team
         if ($request->hasFile('image')) {
+            if ($teamMember->image && Storage::disk('public')->exists($teamMember->image)) {
 
-            //Delete before image
-            Storage::disk('public')->delete($data['image']);
+                //Delete before image
+                Storage::disk('public')->delete($data['image']);
+            }
 
             $data['image'] = $request->file('image')
                 ->store('team', 'public');
@@ -98,6 +100,11 @@ class TeamMemberController extends Controller
      */
     public function destroy(TeamMember $teamMember): RedirectResponse
     {
+        if ($teamMember->image && Storage::disk('public')->exists($teamMember->image)) {
+            //Delete before image
+            Storage::disk('public')->delete($data['image']);
+        }
+
         $teamMember->delete();
 
         return to_route((app()->getLocale() . ".dashboard.team-members.index"));

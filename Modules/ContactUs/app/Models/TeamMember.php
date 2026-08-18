@@ -1,22 +1,44 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\ContactUs\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-// use Modules\ContactUs\Database\Factories\TeamMemberFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class TeamMember extends Model
 {
     use HasFactory;
+    protected $table = 'team_members';
+
+    //Team member status constraint variables
+    public const ACTIVE = 'active';
+    public const INACTIVE = 'inactive';
+
+    protected $fillable = [
+        'full_name',
+        'status',
+        'field',
+        'image'
+    ];
 
     /**
-     * The attributes that are mass assignable.
+     * @param $query
+     * @return Builder
      */
-    protected $fillable = [];
+    public function scopeActiveMembers($query): Builder
+    {
+        return $query->where('status', self::ACTIVE);
+    }
 
-    // protected static function newFactory(): TeamMemberFactory
-    // {
-    //     // return TeamMemberFactory::new();
-    // }
+    /**
+     * @param $query
+     * @return Builder
+     */
+    public function scopeInActiveMembers($query): Builder
+    {
+        return $query->where('status', self::INACTIVE);
+    }
 }
