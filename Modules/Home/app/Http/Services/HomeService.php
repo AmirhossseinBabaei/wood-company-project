@@ -19,21 +19,32 @@ final class HomeService
     public function getHomeData(): array
     {
         return [
+            //header menus for show into header
             'headerMenus' => Menu::headerMenus()
-                ->orderBy('sort_order', 'asc')
+                ->orderBy('sort_order')
                 ->get(),
+
+            //header menus for show into footer
             'footerMenus' => Menu::footerMenus()
-                ->orderBy('sort_order', 'asc')
+                ->orderBy('sort_order')
                 ->get(),
+
+            //slider images for show into slider component
             'sliders' => Slider::latest()
-                ->limit(10)
+                ->take(10)
                 ->get(),
+
+            //setting record for show into page
             'setting' => Setting::first(),
+
+            //counters integers for show into statistics component
             'counters' => [
                 'servicesCount' => Service::count(),
                 'projectsCount' => Project::count(),
                 'usersCount' => User::count(),
             ],
+
+            //projects for show into project component
             'projects' => Project::with('images')
                 ->latest()
                 ->get(),

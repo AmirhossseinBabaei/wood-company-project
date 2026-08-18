@@ -10,13 +10,14 @@ use Modules\Home\app\Http\Services\HomeService;
 
 class HomeController extends Controller
 {
-    public function __construct(public HomeService $service)
+    /**
+     * @param HomeService $service
+     * @return View
+     */
+    public function index(HomeService $service): View
     {
-    }
-
-    public function index(): View
-    {
-        $data = $this->service->getHomeData();
+        //get home page data from home service helper
+        $data = $service->getHomeData();
 
         return view('home::index', compact('data'));
     }
