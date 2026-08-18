@@ -1,9 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\ContactUs\Providers;
 
 use Nwidart\Modules\Support\ModuleServiceProvider;
-use Illuminate\Console\Scheduling\Schedule;
 
 class ContactUsServiceProvider extends ModuleServiceProvider
 {
@@ -15,7 +16,7 @@ class ContactUsServiceProvider extends ModuleServiceProvider
     /**
      * The lowercase version of the module name.
      */
-    protected string $nameLower = 'contactus';
+    protected string $nameLower = 'contact-messages';
 
     /**
      * Command classes to register.
@@ -36,7 +37,7 @@ class ContactUsServiceProvider extends ModuleServiceProvider
 
     /**
      * Define module schedules.
-     * 
+     *
      * @param $schedule
      */
     // protected function configureSchedules(Schedule $schedule): void
