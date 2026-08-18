@@ -7,7 +7,6 @@ namespace Modules\Project\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Property extends Model
 {
@@ -23,6 +22,9 @@ class Property extends Model
         'en_value'
     ];
 
+    /**
+     * @return BelongsToMany
+     */
     public function projects(): BelongsToMany
     {
         return $this->belongsToMany(Property::class, 'project_property', 'property_id', 'project_id');
