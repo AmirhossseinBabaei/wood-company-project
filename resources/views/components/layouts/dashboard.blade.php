@@ -497,6 +497,53 @@
 
 
                         {{-- =========================
+                            TEAM MEMBERS
+                        ========================== --}}
+                        <li class="slide {{ request()->routeIs($locale . '.dashboard.team-members.*') ? 'is-expanded active' : '' }}">
+
+                            <a
+                                class="side-menu__item"
+                                data-bs-toggle="slide"
+                                href="javascript:void(0)"
+                            >
+
+                                <i class="side-menu__icon fe fe-menu"></i>
+
+                                <span class="side-menu__label">
+                    {{ __('messages.team_members') }}
+                </span>
+
+                                <i class="angle fe fe-chevron-right"></i>
+
+                            </a>
+
+                            <ul class="slide-menu">
+
+                                {{-- All Menus --}}
+                                <li>
+                                    <a
+                                        href="{{ route($locale . '.dashboard.team-members.index') }}"
+                                        class="slide-item {{ request()->routeIs($locale . '.dashboard.team-members.index') ? 'active' : '' }}"
+                                    >
+                                        {{ __('messages.All Team') }}
+                                    </a>
+                                </li>
+
+                                {{-- Create Menu --}}
+                                <li>
+                                    <a
+                                        href="{{ route($locale . '.dashboard.team-members.create') }}"
+                                        class="slide-item {{ request()->routeIs($locale . '.dashboard.team-members.create') ? 'active' : '' }}"
+                                    >
+                                        {{ __('messages.Create Team') }}
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+                        {{-- =========================
                             PROJECTS
                         ========================== --}}
                         <li class="slide {{ request()->routeIs($locale . '.dashboard.projects.*') ? 'is-expanded active' : '' }}">
@@ -874,7 +921,6 @@
         });
     }); </script>
 @yield('scripts')
-
 
 </body>
 </html>
