@@ -23,11 +23,17 @@ class Project extends Model
         'en_slug',
     ];
 
+    /**
+     * @return BelongsToMany
+     */
     public function properties(): BelongsToMany
     {
         return $this->belongsToMany(Property::class, 'project_property', 'project_id', 'property_id');
     }
 
+    /**
+     * @return HasMany
+     */
     public function images(): HasMany
     {
         return $this->hasMany(ProjectImage::class);
