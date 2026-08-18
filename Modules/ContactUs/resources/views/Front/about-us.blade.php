@@ -1,4 +1,4 @@
-@extends('contactus::components.layouts.master')
+@extends('contact-messages::components.layouts.master')
 
 @section('title', __('ContactUs::words.about_us'))
 
@@ -856,6 +856,108 @@
         .about-hero{
             margin-top: -5rem !important;
         }
+        .team-section {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+
+        .team-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .team-subtitle {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 8px;
+            opacity: 0.7;
+        }
+
+        .team-title {
+            margin: 0;
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 30px;
+        }
+
+        .team-card {
+            text-align: center;
+        }
+
+        .team-image-wrapper {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .team-image {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .team-card:hover .team-image {
+            transform: scale(1.05);
+        }
+
+        .team-info {
+            text-align: center;
+        }
+
+        .team-name {
+            margin: 0 0 5px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .team-field {
+            font-size: 14px;
+            opacity: 0.65;
+        }
+
+        .team-empty {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 30px;
+            opacity: 0.6;
+        }
+
+
+        @media (max-width: 992px) {
+
+            .team-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+        }
+
+
+        @media (max-width: 768px) {
+
+            .team-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 20px;
+            }
+
+        }
+
+
+        @media (max-width: 480px) {
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
     </style>
 
 @endsection
@@ -1036,6 +1138,70 @@
         </section>
 
 
+        {{-- ====================================================
+        Members
+        ====================================================== --}}
+        <section class="about-section team-section">
+
+            <div class="about-container">
+
+                <div class="team-header reveal">
+
+            <span class="team-subtitle">
+                {{ __('ContactUs::words.team') }}
+            </span>
+
+                    <h2 class="team-title">
+                        {{ __('ContactUs::words.our_team') }}
+                    </h2>
+
+                </div>
+
+
+                <div class="team-grid">
+
+                    @forelse($members as $teamMember)
+
+                        <div class="team-card reveal">
+
+                            <div class="team-image-wrapper">
+
+                                <img
+                                    class="team-image"
+                                    src="{{ asset('storage/' . $teamMember->image) }}"
+                                    alt="{{ $teamMember->full_name }}"
+                                    loading="lazy"
+                                >
+
+                            </div>
+
+                            <div class="team-info">
+
+                                <h3 class="team-name">
+                                    {{ $teamMember->full_name }}
+                                </h3>
+
+                                <span class="team-field">
+                            {{ $teamMember->field }}
+                        </span>
+
+                            </div>
+
+                        </div>
+
+                    @empty
+
+                        <div class="team-empty">
+                            {{ __('ContactUs::words.no_team_members') }}
+                        </div>
+
+                    @endforelse
+
+                </div>
+
+            </div>
+
+        </section>
         {{-- =====================================================
              BRAND + STATS
         ====================================================== --}}
