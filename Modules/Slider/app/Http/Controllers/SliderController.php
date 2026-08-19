@@ -42,7 +42,7 @@ class SliderController extends Controller
 
         //Checking for the presence of an image in the request and if exists save in storage/sliders
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('public', 'sliders');
+            $data['image'] = $request->file('image')->store('sliders', 'public');
         }
 
         Slider::create($data);
@@ -71,7 +71,7 @@ class SliderController extends Controller
 
         //Checking for the presence of an image in the request and if exists save in storage/sliders
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('public', 'sliders');
+            $data['image'] = $request->file('image')->store('sliders', 'public');
         }
 
         $slider->update($data);

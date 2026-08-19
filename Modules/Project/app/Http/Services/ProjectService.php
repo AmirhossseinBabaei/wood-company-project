@@ -35,7 +35,7 @@ final class ProjectService
 
             if ($request->hasFile('images')) {
                 foreach ($request->file('images') as $image) {
-                    $imgUrl = $image->store('public', 'projects');
+                    $imgUrl = $image->store('projects', 'public');
 
                     ProjectImage::create([
                         'project_id' => $project->id,
@@ -81,7 +81,7 @@ final class ProjectService
             if ($request->hasFile('images')) {
                 foreach ($request->file('images') as $image) {
 
-                    $imgUrl = $image->store('public', 'projects');
+                    $imgUrl = $image->store('projects', 'public');
 
                     ProjectImage::create([
                         'project_id' => $project->id,
