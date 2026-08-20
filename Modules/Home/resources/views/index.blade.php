@@ -104,6 +104,30 @@
             transform: rotate(197deg);
             transform: scaleX(-1);
         }
+        .advantages-title {
+            display: inline-block;
+            padding: 14px 32px !important;
+            margin: 0;
+            font-size:35px !important;
+
+            color: #F1E8D8;
+            background: #413a27;
+
+            border: 1px solid rgba(220, 190, 145, 0.35);
+            border-radius: 14px;
+
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+
+            box-shadow:
+                0 8px 25px rgba(35, 25, 18, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.12),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+
+            position: relative;
+            overflow: hidden;
+        }
 
     </style>
 
@@ -157,9 +181,9 @@
 
                     <div class="sticky-content">
 
-                        <h3 class="text-warning text-uppercase my-doran5">
+                        <h1 class="advantages-title mb-5">
                             {{ __('Home::words.advantages') }}
-                        </h3>
+                        </h1>
 
                         <h4 class="fw-bold mb-4 my-doran5">
                             {{ __('Home::words.advantages_slug') }}
@@ -169,10 +193,10 @@
                             {{ __('Home::words.advantages_description') }}
                         </p>
 
-                        <button class="btn btn-warning px-4 py-2 mt-3">
+                        <button class="btn btn-warning px-4 py-2 mt-3 border-none" style="background-color: #413a27">
 
                             <a
-                                class="text-decoration-none text-black"
+                                class="text-decoration-none text-white"
                                 href="{{ route(app()->getLocale() . '.projects') }}"
                             >
                                 {{ __('Home::words.show_my_portfolio') }}
@@ -409,7 +433,7 @@
                                     <span class="splide__slide">
 
                                         <img
-                                            data-src="{{ asset('assets/images/slider/slider-pk-1.svg') }}"
+                                            data-src="{{ asset('assets/images/slider/slider-pk-4.svg') }}"
                                             width="100"
                                             height="100"
                                             alt=""
@@ -427,7 +451,7 @@
                                     <span class="splide__slide">
 
                                         <img
-                                            data-src="{{ asset('assets/images/slider/slider-pk-2.svg') }}"
+                                            data-src="{{ asset('assets/images/slider/slider-pk-5.svg') }}"
                                             width="100"
                                             height="100"
                                             alt=""
@@ -445,7 +469,7 @@
                                     <span class="splide__slide">
 
                                         <img
-                                            data-src="{{ asset('assets/images/slider/slider-pk-3.svg') }}"
+                                            data-src="{{ asset('assets/images/slider/slider-pk-6.svg') }}"
                                             width="100"
                                             height="100"
                                             alt=""
@@ -463,7 +487,7 @@
                                     <span class="splide__slide">
 
                                         <img
-                                            data-src="{{ asset('assets/images/slider/slider-pk-1.svg') }}"
+                                            data-src="{{ asset('assets/images/slider/slider-pk-7.svg') }}"
                                             width="100"
                                             height="100"
                                             alt=""
@@ -477,146 +501,6 @@
                                     {{-- =====================================================
                                          SLIDER 8
                                     ====================================================== --}}
-
-                                    <span class="splide__slide">
-
-                                        <img
-                                            data-src="{{ asset('assets/images/slider/slider-pk-2.svg') }}"
-                                            width="100"
-                                            height="100"
-                                            alt=""
-                                            decoding="async"
-                                            loading="lazy"
-                                        >
-
-                                    </span>
-
-
-                                    {{-- =====================================================
-                                         SLIDER 9
-                                    ====================================================== --}}
-
-                                    <span class="splide__slide">
-
-                                        <img
-                                            data-src="{{ asset('assets/images/slider/slider-pk-3.svg') }}"
-                                            width="100"
-                                            height="100"
-                                            alt=""
-                                            decoding="async"
-                                            loading="lazy"
-                                        >
-
-                                    </span>
-
-
-                                    {{-- =====================================================
-                                         SLIDER 10
-                                    ====================================================== --}}
-
-                                    <span class="splide__slide">
-
-                                        <img
-                                            data-src="{{ asset('assets/images/slider/slider-pk-1.svg') }}"
-                                            width="100"
-                                            height="100"
-                                            alt=""
-                                            decoding="async"
-                                            loading="lazy"
-                                        >
-
-                                    </span>
-
-
-                                    {{-- =====================================================
-                                         SLIDER 11
-                                    ====================================================== --}}
-
-                                    <span class="splide__slide">
-
-                                        <img
-                                            data-src="{{ asset('assets/images/slider/slider-pk-2.svg') }}"
-                                            width="100"
-                                            height="100"
-                                            alt=""
-                                            decoding="async"
-                                            loading="lazy"
-                                        >
-
-                                    </span>
-
-
-                                    {{-- =====================================================
-                                         SLIDER 12
-                                    ====================================================== --}}
-
-                                    <span class="splide__slide">
-
-                                        <img
-                                            data-src="{{ asset('assets/images/slider/slider-pk-3.svg') }}"
-                                            width="100"
-                                            height="100"
-                                            alt=""
-                                            decoding="async"
-                                            loading="lazy"
-                                        >
-
-                                    </span>
-
-
-                                    {{-- =====================================================
-                                         SLIDER 13
-                                    ====================================================== --}}
-
-                                    <span class="splide__slide">
-
-                                        <img
-                                            data-src="{{ asset('assets/images/slider/slider-pk-1.svg') }}"
-                                            width="100"
-                                            height="100"
-                                            alt=""
-                                            decoding="async"
-                                            loading="lazy"
-                                        >
-
-                                    </span>
-
-
-                                    {{-- =====================================================
-                                         SLIDER 14
-                                    ====================================================== --}}
-
-                                    <span class="splide__slide">
-
-                                        <img
-                                            data-src="{{ asset('assets/images/slider/slider-pk-2.svg') }}"
-                                            width="100"
-                                            height="100"
-                                            alt=""
-                                            decoding="async"
-                                            loading="lazy"
-                                        >
-
-                                    </span>
-
-
-                                    {{-- =====================================================
-                                         SLIDER 15
-                                    ====================================================== --}}
-
-                                    <span class="splide__slide">
-
-                                        <img
-                                            data-src="{{ asset('assets/images/slider/slider-pk-3.svg') }}"
-                                            width="100"
-                                            height="100"
-                                            alt=""
-                                            decoding="async"
-                                            loading="lazy"
-                                        >
-
-                                    </span>
-
 
                                 </ul>
 
