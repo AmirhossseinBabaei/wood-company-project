@@ -23,7 +23,17 @@
             #Hero {
                 margin-top: 50px !important;
             }
+            .dropdown-item{
+                height: 100px !important;
+            }
+            #langMenuParent{
+               display:flex !important;
+            }
+            #languageDropdownBtn{
+                display: none !important;
+            }
         }
+
          #mobileMenu {
              display: block;
          }
@@ -86,6 +96,22 @@
             position:absolute !important;
             top:0 !important;
         }
+        .hero-subtitle {
+            max-width: 520px;
+            margin-top: 18px;
+            color: rgba(255, 255, 255, 0.78);
+            font-size: 18px;
+            line-height: 1.9;
+            text-align: center;
+            font-weight: 400;
+        }
+        .hero-bg {
+            background-color: #241A15;
+        }
+        .my-doran5{
+            font-family: 'dooran5' !important;
+        }
+
     </style>
     @vite('resources/js/app.js')
     @yield('styles')
@@ -128,14 +154,26 @@
                                     style="background: transparent; color: inherit;">
 
                                 @if(app()->getLocale() == 'fa')
-                                    <span class="text-white">FA</span>
+                                    <span class="text-white">
+                                                   <img src="https://flagcdn.com/w40/ir.png"
+                                                        width="28"
+                                                        height="19"
+                                                        class="rounded-1"
+                                                        alt="FA">
+                                    </span>
                                 @else
-                                    <span class="text-white">EN</span>
+                                    <span class="text-white">
+                                                <img src="https://flagcdn.com/w40/gb.png"
+                                                     width="28"
+                                                     height="19"
+                                                     class="rounded-1"
+                                                     alt="EN">
+
+                                    </span>
                                 @endif
 
 
                             </button>
-
                             <ul id="languageDropdownMenu"
                                 class="dropdown-menu dropdown-menu-end shadow-sm border-0">
 
@@ -170,7 +208,39 @@
                                 </li>
 
                             </ul>
+                            <div id="langMenuParent" class="col-12 d-flex align-items-center justify-content-around d-none" style="margin-right:10px !important">
+                                <div class="col-6 mr-3">
+                                    <a class="dropdown-item d-flex align-items-center gap-2"
+                                       href="{{ route('home.fa') }}">
 
+                                        <img src="https://flagcdn.com/w40/ir.png"
+                                             width="28"
+                                             height="19"
+                                             class="rounded-1"
+                                             alt="FA">
+
+                                        <span class="text-white-50">فارسی</span>
+
+                                    </a>
+
+                                </div>
+                                <div class="col-">
+                                    <a class="dropdown-item d-flex align-items-center gap-2"
+                                       href="{{ route('home.en') }}">
+
+                                        <img src="https://flagcdn.com/w40/gb.png"
+                                             width="28"
+                                             height="19"
+                                             class="rounded-1"
+                                             alt="EN">
+
+                                        <span class="text-white-50">English</span>
+
+                                    </a>
+
+                                </div>
+
+                            </div>
                         </li>
                 </ul>
             </div>
@@ -184,9 +254,9 @@
     </div>
     <!-- Hero Slider -->
     <div class="row">
-        <div class="col-12 d-flex align-items-center" id="Hero">
+        <div class="col-12 d-flex align-items-center bg-hero" id="Hero">
             <!-- Slider -->
-            <div class="col-xl-6 col-sm-12" id="sliderContainer">
+            <div class="col-xl-6 col-sm-12 bg-hero" id="sliderContainer">
 
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
@@ -203,11 +273,15 @@
 
             </div>
             <!-- Hero -->
-            <div class="col-6 web-background h-100 text-white d-flex align-items-center flex-column justify-content-center hero">
+            <div class="col-6 web-background h-100 text-white d-flex align-items-center flex-column justify-content-center hero bg-hero">
 
-                <h1 class="hero-title">
-                    {{ $data['setting']->{app()->getLocale() . "_hero_title"} }}
-                </h1>
+                <div class="col-6 web-background h-100 text-white d-flex align-items-center flex-column justify-content-center hero bg-hero">
+
+                    <h1 class="hero-title my-doran">
+                        {{ $data['setting']->{app()->getLocale() . "_hero_title"} }}
+                    </h1>
+
+                </div>
 
             </div>
         </div>
@@ -215,14 +289,14 @@
     <div class="row">
         <div class="col-12 container fade-left">
             <div
-                class="col-12 h-100 web-background d-flex align-items-center justify-content-center text-center flex-column">
+                class="col-12 h-100 web-background d-flex align-items-center justify-content-center text-center flex-column bg-hero">
                 <div class="col-xl-6 mt-5 col-sm-8 col-md-5">
-                    <h3 class="text-warning-font-avaible">{{ $data['setting']->{app()->getLocale() . "_website_name"} ?? '-' }}</h3>
+                    <h3 class="text-warning-font-avaible my-doran5">{{ $data['setting']->{app()->getLocale() . "_website_name"} ?? '-' }}</h3>
                     <p style="font-size: 20px !important" class="bold text-warning-50">
                         {{ $data['setting']->{app()->getLocale() . "_website_description"} ?? '-' }}
                     </p>
                 </div>
-                <div class="col-12 about-cards-container d-flex align-items-center justify-content-center">
+                <div class="col-12 about-cards-container d-flex align-items-center justify-content-center bg-woody bg-hero">
                     <div class="col-xl-1 col-sm-12 about-card">
                         <div class="quick_fact align_center animate-math">
                             <div class="number-wrapper">
@@ -262,7 +336,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div >
     <!-- content -->
     @yield('content')
     <div class="row">
