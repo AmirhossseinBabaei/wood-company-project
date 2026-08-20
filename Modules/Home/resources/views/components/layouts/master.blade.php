@@ -19,24 +19,28 @@
             font-weight: 700;
             text-align: center;
         }
+
         @media (min-width: 100px) and (max-width: 900px) {
             #Hero {
                 margin-top: 50px !important;
             }
-            .dropdown-item{
+
+            .dropdown-item {
                 height: 100px !important;
             }
-            #langMenuParent{
-               display:flex !important;
+
+            #langMenuParent {
+                display: flex !important;
             }
-            #languageDropdownBtn{
+
+            #languageDropdownBtn {
                 display: none !important;
             }
         }
 
-         #mobileMenu {
-             display: block;
-         }
+        #mobileMenu {
+            display: block;
+        }
 
         /* Mobile */
         @media (max-width: 991.98px) {
@@ -78,6 +82,7 @@
                 transform: translateY(0);
             }
         }
+
         .language-dropdown .dropdown-menu {
             min-width: 150px;
             padding: 6px;
@@ -92,10 +97,12 @@
         .language-dropdown .dropdown-item:hover {
             background-color: #f5f5f5;
         }
-        .container-fluid{
-            position:absolute !important;
-            top:0 !important;
+
+        .container-fluid {
+            position: absolute !important;
+            top: 0 !important;
         }
+
         .hero-subtitle {
             max-width: 520px;
             margin-top: 18px;
@@ -105,13 +112,97 @@
             text-align: center;
             font-weight: 400;
         }
+
         .hero-bg {
-            background-color: #241A15;
+            background-color: #413a27;
         }
-        .my-doran5{
+
+        .my-doran5 {
             font-family: 'dooran5' !important;
         }
 
+        #bgArg {
+            position: relative;
+            overflow: hidden;
+
+            background-image: radial-gradient(
+                ellipse at center,
+                rgba(65, 58, 39, 0.78) 0%,
+                rgba(65, 58, 39, 0.88) 50%,
+                rgba(65, 58, 39, 0.97) 100%
+            ),
+            url('{{ asset('assets/images/bg/bg-wood3.jpg') }}') !important;
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat !important;
+
+            margin-bottom: -1px;
+        }
+
+     #sideEffect{
+         width: 1000px !important;
+         position: absolute;
+         top: 79rem !important;
+         left: -31rem ! IMPORTANT;
+         transform: scaleX(-1) rotate(-26deg);
+     }
+
+        @media (max-width: 991px) {
+            #sideEffect {
+                width: 500px !important;
+                top: 34rem !important;
+            }
+        }
+
+        @media (max-width: 767px) {
+            #sideEffect {
+                width: 350px !important;
+                top: 34rem !important;
+            }
+        }
+
+        @media (max-width: 575px) {
+            #sideEffect {
+                display: none !important;
+            }
+        }
+        #videoContainer {
+            position: relative;
+            overflow: hidden;
+            background: #fff !important;
+        }
+
+        /* فقط 50٪ بالایی */
+        #videoContainer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+
+            background-image:
+                radial-gradient(
+                    ellipse at center,
+                    rgba(65, 58, 39, 0.78) 0%,
+                    rgba(65, 58, 39, 0.88) 50%,
+                    rgba(65, 58, 39, 0.97) 100%
+                ),
+                url('{{ asset('assets/images/bg/bg-wood3.jpg') }}');
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            z-index: 0;
+        }
+
+        /* ویدیو روی بک‌گراند */
+        #videoContainer > * {
+            position: relative;
+            z-index: 1;
+        }
     </style>
     @vite('resources/js/app.js')
     @yield('styles')
@@ -119,32 +210,33 @@
 <body>
 
 <div class="container-fluid">
-    <!-- Navbar -->
-    <div class="row navbar fixed-top">
-        <div class="row align-items-center col-12 my-navbar">
+    <div class="col-12 bg-danger d-block" id="bgArg" style="min-height:100px !important">
+        <!-- Navbar -->
+        <div class="row navbar fixed-top">
+            <div class="row align-items-center col-12 my-navbar">
 
-            <!-- Mobile Menu Button -->
-            <div class="col-6 d-lg-none">
-                <button type="button"
-                        class="btn text-white"
-                        id="mobileMenuBtn"
-                        aria-expanded="false">
-                    ☰
-                </button>
-            </div>
+                <!-- Mobile Menu Button -->
+                <div class="col-6 d-lg-none">
+                    <button type="button"
+                            class="btn text-white"
+                            id="mobileMenuBtn"
+                            aria-expanded="false">
+                        ☰
+                    </button>
+                </div>
 
-            <!-- Menu -->
-            <div class="col-lg-6" id="mobileMenu">
-                <ul class="nav justify-content-start align-items-center gap-4 m-0 flex-column flex-lg-row">
+                <!-- Menu -->
+                <div class="col-lg-6" id="mobileMenu">
+                    <ul class="nav justify-content-start align-items-center gap-4 m-0 flex-column flex-lg-row">
 
-                    @foreach($data['headerMenus'] as $menu)
-                        <li class="nav-item bold {{ url()->current() == $menu->{app()->getLocale() . "_url"} ? 'active' : '' }}">
-                            <a class="nav-link"
-                               href="{{ $menu->{app()->getLocale() . "_url"} }}">
-                                {{ $menu->{app()->getLocale() . "_title"} }}
-                            </a>
-                        </li>
-                    @endforeach
+                        @foreach($data['headerMenus'] as $menu)
+                            <li class="nav-item bold {{ url()->current() == $menu->{app()->getLocale() . "_url"} ? 'active' : '' }}">
+                                <a class="nav-link"
+                                   href="{{ $menu->{app()->getLocale() . "_url"} }}">
+                                    {{ $menu->{app()->getLocale() . "_title"} }}
+                                </a>
+                            </li>
+                        @endforeach
 
                         <li class="nav-item dropdown no-border">
 
@@ -208,7 +300,9 @@
                                 </li>
 
                             </ul>
-                            <div id="langMenuParent" class="col-12 d-flex align-items-center justify-content-around d-none" style="margin-right:10px !important">
+                            <div id="langMenuParent"
+                                 class="col-12 d-flex align-items-center justify-content-around d-none"
+                                 style="margin-right:10px !important">
                                 <div class="col-6 mr-3">
                                     <a class="dropdown-item d-flex align-items-center gap-2"
                                        href="{{ route('home.fa') }}">
@@ -242,101 +336,131 @@
 
                             </div>
                         </li>
-                </ul>
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
+        <!-- Hero Slider -->
+        <div class="row">
+            <div class="col-12 d-flex align-items-center bg-hero" id="Hero">
+                <!-- Slider -->
+                <div class="col-xl-6 col-sm-12 bg-hero" id="sliderContainer">
+
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            @foreach($data['sliders'] as $slider)
+                                <div class="swiper-slide">
+                                    <img src="{{ 'storage/' .$slider->image }}">
+                                </div>
+                            @endforeach
+
+                        </div>
+
+                        <div class="swiper-pagination"></div>
+                    </div>
+
+                </div>
+                <!-- Hero -->
+                <div
+                    class="col-6 web-background h-100 text-white d-flex align-items-center flex-column justify-content-center hero bg-hero flex-column">
+                    <div
+                        class="col-6 web-background h-100 text-white d-flex align-items-center flex-column justify-content-center hero bg-hero">
+
+                        <img src="{{ asset('assets/images/title/web-title.png') }}" width="350px" height="200px">
+
+                        <div class="col-12 col-lg-6 d-flex justify-content-end ml-5"
+                             style="margin-top: 90px !important;">
+                            <img src="{{ 'storage/'. $data['setting']->logo_src ?? '' }}" alt="Logo"
+                                 style="margin-left:30px;width:150px;height:40px"
+                                 class="mt-2">
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 container fade-left">
+                <div
+                    class="col-12 h-100 web-background d-flex align-items-center justify-content-center text-center flex-column bg-hero">
+                    <div class="col-xl-4 mt-5 col-sm-8 col-md-5">
+                        <p style="font-size: 20px !important" class="bold text-warning-50">
+                            {{ $data['setting']->{app()->getLocale() . "_website_description"} ?? '-' }}
+                        </p>
+                    </div>
+                    <div
+                        class="col-12 about-cards-container d-flex align-items-center justify-content-center bg-woody bg-hero">
+                        <div class="col-xl-1 col-sm-12 about-card">
+                            <div class="quick_fact align_center animate-math">
+                                <div class="number-wrapper">
+                                    <span class="number"
+                                          data-to="{{ $data['counters']['servicesCount'] ?? 0 }}">0</span>
+                                </div>
+                                <hr class="hr_narrow">
+                                <div class="desc">{{ __('Home::words.services_count') }}</div>
+                            </div>
+                        </div>
+                        <div class="col-xl-1 col-sm-12 about-card">
+                            <div class="quick_fact align_center animate-math">
+                                <div class="number-wrapper">
+                                    <span class="number"
+                                          data-to="{{ $data['counters']['projectsCount'] ?? 0 }}">0</span>
+                                </div>
+                                <hr class="hr_narrow">
+                                <div class="desc">{{ __('Home::words.projects_count') }}</div>
+                            </div>
+                        </div>
+                        <div class="col-xl-1 col-sm-12 about-card">
+                            <div class="quick_fact align_center animate-math">
+                                <div class="number-wrapper">
+                                    <span class="number" data-to="{{ $data['counters']['usersCount'] ?? 0 }}">0</span>
+                                </div>
+                                <hr class="hr_narrow">
+                                <div class="desc">{{ __('Home::words.users_count') }}</div>
+                            </div>
+                        </div>
+                        <div class="col-xl-1 col-sm-12 about-card">
+                            <div class="quick_fact align_center animate-math">
+                                <div class="number-wrapper">
+                                    <span class="number" data-to="89">0</span>
+                                </div>
+                                <hr class="hr_narrow">
+                                <div class="desc">{{ __('Home::words.satisfied_customer') }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+            <div class="container fade-right bg-woody bg-hero">
+
+                <div
+                    class="col-12 d-flex align-items-center justify-content-center bg-woody"
+                    id="videoContainer"
+                >
+
+                    <video
+                        src="{{ asset('assets/videos/video-hero.mp4') }}"
+                        autoplay
+                        muted
+                        loop
+                        playsinline
+                        preload="metadata"
+                    ></video>
+
+                </div>
+
             </div>
 
-            <!-- Logo -->
-            <div class="col-6 col-lg-6 d-flex justify-content-end">
-                <img src="{{ 'storage/'. $data['setting']->logo_src ?? '' }}" alt="Logo" style="height:60px;"
-                     class="mt-2">
-            </div>
         </div>
     </div>
-    <!-- Hero Slider -->
-    <div class="row">
-        <div class="col-12 d-flex align-items-center bg-hero" id="Hero">
-            <!-- Slider -->
-            <div class="col-xl-6 col-sm-12 bg-hero" id="sliderContainer">
-
-                <div class="swiper mySwiper">
-                    <div class="swiper-wrapper">
-                        @foreach($data['sliders'] as $slider)
-                            <div class="swiper-slide">
-                                <img src="{{ 'storage/' .$slider->image }}">
-                            </div>
-                        @endforeach
-
-                    </div>
-
-                    <div class="swiper-pagination"></div>
-                </div>
-
-            </div>
-            <!-- Hero -->
-            <div class="col-6 web-background h-100 text-white d-flex align-items-center flex-column justify-content-center hero bg-hero">
-
-                <div class="col-6 web-background h-100 text-white d-flex align-items-center flex-column justify-content-center hero bg-hero">
-
-                    <h1 class="hero-title my-doran">
-                        {{ $data['setting']->{app()->getLocale() . "_hero_title"} }}
-                    </h1>
-
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12 container fade-left">
-            <div
-                class="col-12 h-100 web-background d-flex align-items-center justify-content-center text-center flex-column bg-hero">
-                <div class="col-xl-6 mt-5 col-sm-8 col-md-5">
-                    <h3 class="text-warning-font-avaible my-doran5">{{ $data['setting']->{app()->getLocale() . "_website_name"} ?? '-' }}</h3>
-                    <p style="font-size: 20px !important" class="bold text-warning-50">
-                        {{ $data['setting']->{app()->getLocale() . "_website_description"} ?? '-' }}
-                    </p>
-                </div>
-                <div class="col-12 about-cards-container d-flex align-items-center justify-content-center bg-woody bg-hero">
-                    <div class="col-xl-1 col-sm-12 about-card">
-                        <div class="quick_fact align_center animate-math">
-                            <div class="number-wrapper">
-                                <span class="number" data-to="{{ $data['counters']['servicesCount'] ?? 0 }}">0</span>
-                            </div>
-                            <hr class="hr_narrow">
-                            <div class="desc">{{ __('Home::words.services_count') }}</div>
-                        </div>
-                    </div>
-                    <div class="col-xl-1 col-sm-12 about-card">
-                        <div class="quick_fact align_center animate-math">
-                            <div class="number-wrapper">
-                                <span class="number" data-to="{{ $data['counters']['projectsCount'] ?? 0 }}">0</span>
-                            </div>
-                            <hr class="hr_narrow">
-                            <div class="desc">{{ __('Home::words.projects_count') }}</div>
-                        </div>
-                    </div>
-                    <div class="col-xl-1 col-sm-12 about-card">
-                        <div class="quick_fact align_center animate-math">
-                            <div class="number-wrapper">
-                                <span class="number" data-to="{{ $data['counters']['usersCount'] ?? 0 }}">0</span>
-                            </div>
-                            <hr class="hr_narrow">
-                            <div class="desc">{{ __('Home::words.users_count') }}</div>
-                        </div>
-                    </div>
-                    <div class="col-xl-1 col-sm-12 about-card">
-                        <div class="quick_fact align_center animate-math">
-                            <div class="number-wrapper">
-                                <span class="number" data-to="89">0</span>
-                            </div>
-                            <hr class="hr_narrow">
-                            <div class="desc">{{ __('Home::words.satisfied_customer') }}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div >
     <!-- content -->
     @yield('content')
     <div class="row">
@@ -347,7 +471,8 @@
 
                         <div class="col-lg-4 col-md-6 mb-4">
                             <h3 class="footer-logo">
-                                <img src="{{ 'storage/'. $data['setting']->footer_logo ?? '' }}" alt="Logo" style="height:60px;"
+                                <img src="{{ 'storage/'. $data['setting']->footer_logo ?? '' }}" alt="Logo"
+                                     style="height:60px;"
                                      class="mt-2">
                             </h3>
                             <p>
@@ -360,7 +485,9 @@
                             <h5>{{ __('Home::words.fast_access') }}</h5>
                             <ul>
                                 @foreach($data['footerMenus'] as $menu)
-                                    <li><a href="{{ $menu->{app()->getLocale() . "_url"} }}">{{ $menu->{app()->getLocale() . "_title"} }}</a></li>
+                                    <li>
+                                        <a href="{{ $menu->{app()->getLocale() . "_url"} }}">{{ $menu->{app()->getLocale() . "_title"} }}</a>
+                                    </li>
                                 @endforeach
                             </ul>
                         </div>
@@ -374,10 +501,14 @@
                             <p>✉ {{ $data['setting']->email ?? '-' }}</p>
 
                             <div class="social">
-                                <a target="_blank" href="{{ $data['setting']->telegram ?? '-' }}">{{ __('messages.telegram') }}</a>
-                                <a target="_blank" href="{{ $data['setting']->instagram ?? '-' }}">{{ __('messages.instagram') }}</a>
-                                <a target="_blank" href="{{ $data['setting']->linkedin ?? '-' }}">{{ __('messages.linkedin') }}</a>
-                                <a target="_blank" href="{{ $data['setting']->whatsapp ?? '-' }}">{{ __('messages.whatsapp') }}</a>
+                                <a target="_blank"
+                                   href="{{ $data['setting']->telegram ?? '-' }}">{{ __('messages.telegram') }}</a>
+                                <a target="_blank"
+                                   href="{{ $data['setting']->instagram ?? '-' }}">{{ __('messages.instagram') }}</a>
+                                <a target="_blank"
+                                   href="{{ $data['setting']->linkedin ?? '-' }}">{{ __('messages.linkedin') }}</a>
+                                <a target="_blank"
+                                   href="{{ $data['setting']->whatsapp ?? '-' }}">{{ __('messages.whatsapp') }}</a>
                             </div>
                         </div>
 
