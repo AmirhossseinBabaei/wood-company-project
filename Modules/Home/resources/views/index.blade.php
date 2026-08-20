@@ -64,42 +64,10 @@
             font-family: 'dooran' !important;
         }
 
-        .bg-hero {
-            position: relative;
-            overflow: hidden;
-
-            background-image:
-                radial-gradient(
-                    ellipse at center,
-                    rgba(48, 31, 24, 0.78) 0%,
-                    rgba(48, 31, 24, 0.86) 50%,
-                    rgba(48, 31, 24, 0.97) 100%
-                ),
-                url('{{ asset('assets/images/bg/bg-hero3.jpg') }}') !important;
-
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat !important;
-
-            margin-bottom: -1px;
-        }
         .swiper-slide {
             box-shadow: 0 0 0 0 !important;
         }
-        #videoContainer {
-            background:
-                linear-gradient(
-                    to bottom,
-                    rgba(48, 31, 24, 0.78) 0%,
-                    rgba(48, 31, 24, 0.86) 50%,
-                    rgba(48, 31, 24, 0.97) 100%
-                ) top center / 100% 50% no-repeat,
 
-                url('{{ asset('assets/images/bg/bg-hero3.jpg') }}')
-                top center / 100% 50% no-repeat,
-
-                #ffffff !important;
-        }
         @font-face {
             font-family: 'dooran5';
             src: url({{ asset('assets/fonts/Douran/Doran-Medium.ttf') }});
@@ -128,6 +96,15 @@
             border-radius: 0 !important;
         }
 
+        #sideEffect{
+            width: clamp(350px, 45vw, 900px) !important;
+            position: absolute;
+            top: 50rem !important;
+            left: -6rem ! IMPORTANT;
+            transform: rotate(197deg);
+            transform: scaleX(-1);
+        }
+
     </style>
 
 @endsection
@@ -136,33 +113,7 @@
 @section('content')
 
 
-    {{-- =========================================================
-         HERO VIDEO
-    ========================================================== --}}
 
-    <div class="row">
-
-        <div class="container fade-right bg-woody bg-hero">
-
-            <div
-                class="col-12 d-flex align-items-center justify-content-center bg-woody"
-                id="videoContainer"
-            >
-
-                <video
-                    src="{{ asset('assets/videos/video-hero.mp4') }}"
-                    autoplay
-                    muted
-                    loop
-                    playsinline
-                    preload="metadata"
-                ></video>
-
-            </div>
-
-        </div>
-
-    </div>
 
 
     {{-- =========================================================
