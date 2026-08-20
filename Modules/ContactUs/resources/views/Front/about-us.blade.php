@@ -312,6 +312,16 @@
             font-weight: 700;
         }
 
+        @font-face {
+            font-family: 'Sans';
+            src: url({{ asset('assets/fonts/Douran/Doran-light.ttf') }});
+        }
+
+        * {
+            font-family: 'Sans' !important;
+            margin: 0;
+            padding: 0;
+        }
         /* =========================================================
            OWNER
         ========================================================= */
