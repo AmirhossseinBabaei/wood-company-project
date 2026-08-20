@@ -373,7 +373,7 @@
                         <div class="col-12 col-lg-6 d-flex justify-content-end ml-5"
                              style="margin-top: 90px !important;">
                             <img src="{{ 'storage/'. $data['setting']->logo_src ?? '' }}" alt="Logo"
-                                 style="margin-left:30px;width:150px;height:40px"
+                                 style="margin-left:30px;width:200px;height:90px"
                                  class="mt-2">
                         </div>
 
