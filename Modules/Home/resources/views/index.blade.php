@@ -42,8 +42,6 @@
             object-fit: contain;
         }
 
-        /* جلوگیری از نمایش تصویر شکسته قبل از لود */
-
         img[data-src] {
             opacity: 0;
             transition: opacity .3s ease;
@@ -57,6 +55,79 @@
             width:100% !important;
             height:100% !important;
         }
+        @font-face {
+            font-family: 'dooran';
+            src: url({{ asset('assets/fonts/Douran/Doran-Thin.ttf') }});
+        }
+
+        .my-doran{
+            font-family: 'dooran' !important;
+        }
+
+        .bg-hero {
+            position: relative;
+            overflow: hidden;
+
+            background-image:
+                radial-gradient(
+                    ellipse at center,
+                    rgba(48, 31, 24, 0.78) 0%,
+                    rgba(48, 31, 24, 0.86) 50%,
+                    rgba(48, 31, 24, 0.97) 100%
+                ),
+                url('{{ asset('assets/images/bg/bg-hero3.jpg') }}') !important;
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat !important;
+
+            margin-bottom: -1px;
+        }
+        .swiper-slide {
+            box-shadow: 0 0 0 0 !important;
+        }
+        #videoContainer {
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(48, 31, 24, 0.78) 0%,
+                    rgba(48, 31, 24, 0.86) 50%,
+                    rgba(48, 31, 24, 0.97) 100%
+                ) top center / 100% 50% no-repeat,
+
+                url('{{ asset('assets/images/bg/bg-hero3.jpg') }}')
+                top center / 100% 50% no-repeat,
+
+                #ffffff !important;
+        }
+        @font-face {
+            font-family: 'dooran5';
+            src: url({{ asset('assets/fonts/Douran/Doran-Medium.ttf') }});
+        }
+
+        .contact-section{
+            position: relative;
+
+            min-height: 420px;
+
+            display: flex;
+            align-items: center;
+
+            padding: 80px 25px;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    100deg,
+                    rgba(12, 12, 12, .38),
+                    rgba(12, 12, 12, .82)
+                ),
+                url('{{ asset('assets/images/bg/bg.webp') }}')
+                center / cover no-repeat;
+            border-radius: 0 !important;
+        }
+
     </style>
 
 @endsection
@@ -71,10 +142,10 @@
 
     <div class="row">
 
-        <div class="container fade-right">
+        <div class="container fade-right bg-woody bg-hero">
 
             <div
-                class="col-12 d-flex align-items-center justify-content-center"
+                class="col-12 d-flex align-items-center justify-content-center bg-woody"
                 id="videoContainer"
             >
 
@@ -135,11 +206,11 @@
 
                     <div class="sticky-content">
 
-                        <h3 class="text-warning text-uppercase">
+                        <h3 class="text-warning text-uppercase my-doran5">
                             {{ __('Home::words.advantages') }}
                         </h3>
 
-                        <h4 class="fw-bold mb-4">
+                        <h4 class="fw-bold mb-4 my-doran5">
                             {{ __('Home::words.advantages_slug') }}
                         </h4>
 
@@ -181,11 +252,11 @@
 
                 <div class="text-center col-12">
 
-                    <h6>
+                    <h6 class="my-doran5">
                         {{ __('Home::words.some_completed_projects') }}
                     </h6>
 
-                    <h2>
+                    <h2 class="my-doran5">
                         {{ __('Home::words.we_completed_some_projects') }}
                     </h2>
 
